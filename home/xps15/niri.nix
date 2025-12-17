@@ -19,6 +19,7 @@
   };
 
   ## Niri Settings
+  programs.niri.settings.prefer-no-csd = true;
   # Outputs
   programs.niri.settings.outputs."eDP-1" = {
     scale = 1.5;

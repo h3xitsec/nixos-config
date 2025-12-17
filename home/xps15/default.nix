@@ -5,11 +5,13 @@
   inputs,
   username,
   ...
-}: {
+}: 
+let 
+	headlampApp = import ./apps/headlamp.nix { inherit pkgs; };
+in {
   imports = [
     ./shell.nix
     ./apps/terminal.nix
-    
     ./theme.nix
     ./niri.nix
     ./apps/browsers.nix
@@ -122,6 +124,7 @@
         profile = ''export FHS=1'';
         runScript = "bash";
       })
+      headlampApp
     ];
 
     # Symlinks to /mnt/data
