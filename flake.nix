@@ -4,7 +4,12 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-
+    
+    # nix-darwin stuff
+    #nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-25.11-darwin";
+    darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-25.11";
+    darwin.inputs.nixpkgs.follows = "nixpkgs";
+    
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     home-manager.url = "github:nix-community/home-manager/release-25.11";
@@ -42,6 +47,7 @@
     self,
     nixpkgs,
     nixpkgs-unstable,
+    darwin,
     nixos-hardware,
     nixvim,
     home-manager,
@@ -98,6 +104,12 @@
           }
         ];
       };
+    };
+    darwinConfigurations."h3xmac" = darwin.lib.darwinSystem {
+      modules = [ 
+        home-manager.darwinModules.home-manager {}
+      	./system/macbook/configuration.nix
+      ];
     };
   };
 }
