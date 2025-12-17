@@ -4,7 +4,6 @@
     python312
     python312Packages.pip
     pipx
-    git
     gnumake
     vim
     cacert
