@@ -71,6 +71,7 @@ in {
       "editor.renderLineHighlight" = "none";
       "workbench.iconTheme" = null;
       "workbench.tree.indent" = 12;
+      "git.enableSmartCommit" = true;
     };
     profiles.default.keybindings = [
       {
