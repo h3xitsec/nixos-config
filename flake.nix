@@ -60,6 +60,7 @@
 
     overlays = import ./overlays.nix {inherit inputs;};
 
+    # XPS15
     nixosConfigurations = {
       h3xlptp = nixpkgs.lib.nixosSystem rec {
         specialArgs = {
@@ -105,10 +106,15 @@
         ];
       };
     };
+    # Macbook
     darwinConfigurations."h3xmac" = darwin.lib.darwinSystem {
       modules = [ 
-        home-manager.darwinModules.home-manager {}
-      	./system/macbook/configuration.nix
+        home-manager.darwinModules.home-manager {
+          users.h3x.imports = [
+            ./home/macbook
+          ];
+        }
+        ./system/macbook/configuration.nix
       ];
     };
   };
