@@ -15,6 +15,7 @@
     ./niri.nix
     ./packages.nix
     ./1password.nix
+    ./docker.nix
   ];
   programs.dconf.enable = true;
   # Nix settings
