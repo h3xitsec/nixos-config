@@ -5,7 +5,7 @@
   ];
   environment.systemPackages  = with pkgs; [
         vim
-        vscode
+        #vscode
         discord
   ];
   nixpkgs.config.allowUnfree = true;

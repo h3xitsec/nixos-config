@@ -114,6 +114,7 @@
         ./system/macbook/configuration.nix
         home-manager.darwinModules.home-manager {
           home-manager = {
+            useGlobalPkgs = true;
             users.h3x.imports = [
               ./home/macbook
             ];
