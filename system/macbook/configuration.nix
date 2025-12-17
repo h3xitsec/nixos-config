@@ -1,5 +1,8 @@
 { pkgs, ... }:
 {
+  imports = [
+    ./users.nix
+  ];
   environment.systemPackages  = with pkgs; [
         vim
         vscode
