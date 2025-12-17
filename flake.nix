@@ -66,7 +66,7 @@
           nixos-hardware.nixosModules.dell-xps-15-9520
 
           # System configuration
-          ./system/configuration.nix
+          ./system/xps15/configuration.nix
 
           # Alejandra formatter
           {environment.systemPackages = [alejandra.defaultPackage."x86_64-linux"];}          
@@ -83,7 +83,7 @@
                 inputs.nix-index.homeModules.nix-index
                 inputs.dankMaterialShell.homeModules.dankMaterialShell.default
                 inputs.dankMaterialShell.homeModules.dankMaterialShell.niri
-                ./home
+                ./home/xps15
               ];
             };
           }

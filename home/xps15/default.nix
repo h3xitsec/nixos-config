@@ -9,7 +9,7 @@
   imports = [
     ./shell.nix
     ./apps/terminal.nix
-    ./apps/git.nix
+    
     ./theme.nix
     ./niri.nix
     ./apps/browsers.nix
@@ -17,6 +17,8 @@
     ./apps/tmux.nix
     ./apps/misc.nix
     ./apps/caido.nix
+    ../common/apps/vscode.nix
+    ../common/apps/git.nix
   ];
 
   # Copy custom scripts to profile
