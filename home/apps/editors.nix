@@ -72,6 +72,7 @@ in {
       "workbench.iconTheme" = null;
       "workbench.tree.indent" = 12;
       "git.enableSmartCommit" = true;
+      "git.confirmSync" = false;
     };
     profiles.default.keybindings = [
       {
