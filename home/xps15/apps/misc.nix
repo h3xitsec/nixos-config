@@ -8,7 +8,7 @@
     code-cursor
     github-desktop
     unstable.claude-code
-
+    
     # Tools
     libreoffice-qt
     wireshark

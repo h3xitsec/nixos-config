@@ -18,7 +18,6 @@ in {
   };
 
   # CURSOR IDE
-  home.packages = [];
 
   home.activation.createCursorDirs = lib.hm.dag.entryBefore ["checkLinkTargets"] ''
     if [ -L "$HOME/${cursorConfigDir}" ]; then
