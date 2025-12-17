@@ -3,10 +3,9 @@
   ...
 }: {
   users = {
-    mutableUsers = true;
     users = {
       "h3x" = {
-        isNormalUser = true;
+        home = "/Users/h3x";
         description = "h3x";
       };
     };
