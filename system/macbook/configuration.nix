@@ -41,6 +41,7 @@
       "caffeine"
       "caido"
       "1password"
+      "logi-options+"
     ];
   };
   # Nix settings now handled by shared module ../../lib/shared/nix-settings.nix
