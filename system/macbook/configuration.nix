@@ -30,14 +30,18 @@
   environment.systemPackages  = with pkgs; [
         vim
         discord
+        iterm2
   ];
   homebrew = {
     enable = true;
     onActivation.cleanup = "uninstall";
-
     taps = [];
     brews = [];
-    casks = [];
+    casks = [
+      "caffeine"
+      "caido"
+      "1password"
+    ];
   };
   # Nix settings now handled by shared module ../../lib/shared/nix-settings.nix
   # nixpkgs.config.allowUnfree and nix.settings are set there
