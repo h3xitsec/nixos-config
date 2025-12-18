@@ -34,6 +34,10 @@
       natural-scroll = true;
     };
   };
+  # Cursors
+  programs.niri.settings.cursor = {
+    theme = "capitaine-cursors";
+  };
   # Window Rules
   programs.niri.settings.window-rules = [
     {
@@ -165,6 +169,7 @@
     satty
     wlr-randr
     networkmanagerapplet
+    capitaine-cursors
   ];
   
 }
