@@ -16,51 +16,10 @@
     ./packages.nix
     ./1password.nix
     ./docker.nix
+    # Import shared nix settings
+    ../../lib/shared/nix-settings.nix
   ];
   programs.dconf.enable = true;
-  # Nix settings
-  nix = {
-    settings = {
-      # Build optimization
-      cores = 0; # Use all cores
-      max-jobs = "auto";
-
-      # Store optimization (single place, no systemd service)
-      auto-optimise-store = true;
-      min-free = 536870912; # 512MB
-      max-free = 1073741824; # 1GB
-
-      # Trusted users
-      trusted-users = ["root" "@wheel"];
-
-      # Cache settings
-      substituters = [
-        "https://cache.nixos.org/"
-        "https://nix-community.cachix.org"
-        "https://niri.cachix.org"
-      ];
-
-      trusted-public-keys = [
-        "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-        "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
-      ];
-    };
-
-    package = pkgs.nixVersions.stable;
-
-    extraOptions = ''
-      experimental-features = nix-command flakes
-      warn-dirty = false
-    '';
-
-    # Garbage collection
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 30d";
-    };
-  };
 
   # Locale settings
   time.timeZone = "America/Montreal";
@@ -80,9 +39,8 @@
   # Console configuration
   console.useXkbConfig = true;
 
-  # Package manager settings
-  nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.nvidia.acceptLicense = true;
+  # Package manager settings - now handled by shared nix-settings.nix
+  # nixpkgs.config is set in ../../lib/shared/nix-settings.nix
   
   # System packages list for reference
   environment.etc."current-system-packages".text = let

@@ -69,9 +69,11 @@
     home-manager,
     alejandra,
     ...
-  }: 
+  }:
   let
     darwinSystems = [ "aarch64-darwin" "x86_64-darwin" ];
+    # Import our library functions
+    lib = import ./lib { inherit inputs; };
   in {
     formatter = {
       x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
@@ -81,12 +83,9 @@
 
     # XPS15
     nixosConfigurations = {
-      h3xlptp = nixpkgs.lib.nixosSystem rec {
-        specialArgs = {
-          inherit self inputs;
-          inherit (self) outputs;
-        };
-
+      h3xlptp = lib.builders.nixos {
+        hostname = "h3xlptp";
+        system = "x86_64-linux";
         modules = [
           # Dell XPS 15-9520 hardware support
           nixos-hardware.nixosModules.dell-xps-15-9520
@@ -95,31 +94,16 @@
           ./system/xps15/configuration.nix
 
           # Alejandra formatter
-          {environment.systemPackages = [alejandra.defaultPackage."x86_64-linux"];}          
+          {environment.systemPackages = [alejandra.defaultPackage."x86_64-linux"];}
 
-          # Home Manager
-          home-manager.nixosModules.home-manager
+          # Home Manager user configuration
           {
-            home-manager = {
-              backupFileExtension = "bak";
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.h3x.imports = [
-                inputs.nixvim.homeModules.nixvim
-                inputs.nix-index.homeModules.nix-index
-                inputs.dankMaterialShell.homeModules.dankMaterialShell.default
-                inputs.dankMaterialShell.homeModules.dankMaterialShell.niri
-                ./home/xps15
-              ];
-            };
-          }
-
-          # Apply overlays
-          {
-            nixpkgs.overlays = [
-              inputs.niri.overlays.niri
-              (import ./overlays.nix {inherit inputs;}).fixups
-              (import ./overlays.nix {inherit inputs;}).unstable-packages
+            home-manager.users.h3x.imports = [
+              inputs.nixvim.homeModules.nixvim
+              inputs.nix-index.homeModules.nix-index
+              inputs.dankMaterialShell.homeModules.dankMaterialShell.default
+              inputs.dankMaterialShell.homeModules.dankMaterialShell.niri
+              ./home/xps15
             ];
           }
         ];
@@ -127,8 +111,10 @@
     };
     
     # Macbook
-    darwinConfigurations."h3xmac" = darwin.lib.darwinSystem {
-      modules = [ 
+    darwinConfigurations."h3xmac" = lib.builders.darwin {
+      hostname = "h3xmac";
+      system = "aarch64-darwin";
+      modules = [
         ./system/macbook/configuration.nix
         nix-homebrew.darwinModules.nix-homebrew
         {
@@ -158,13 +144,11 @@
         ({config, ...}: {
           homebrew.taps = builtins.attrNames config.nix-homebrew.taps;
         })
-        home-manager.darwinModules.home-manager {
-          home-manager = {
-            useGlobalPkgs = true;
-            users.h3x.imports = [
-              ./home/macbook
-            ];
-          };
+        # Home Manager user configuration
+        {
+          home-manager.users.h3x.imports = [
+            ./home/macbook
+          ];
         }
       ];
     };

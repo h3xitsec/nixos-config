@@ -2,6 +2,8 @@
 {
   imports = [
     ./users.nix
+    # Import shared nix settings
+    ../../lib/shared/nix-settings.nix
   ];
   system.primaryUser = "h3x";
   system.defaults = {
@@ -39,10 +41,8 @@
       "unnaturalscrollwheels"
     ];
   };
-  nixpkgs.config.allowUnfree = true;
-  nix.settings.experimental-features = "nix-command flakes";
-  nix.settings.substituters = [ "https://cache.nixos.org" ];
-  nix.settings.trusted-public-keys = [ "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=" ];
+  # Nix settings now handled by shared module ../../lib/shared/nix-settings.nix
+  # nixpkgs.config.allowUnfree and nix.settings are set there
   programs.zsh.enable = true;
 
   # Used for backwards compatibility, please read the changelog before changing.
