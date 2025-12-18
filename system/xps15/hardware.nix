@@ -14,7 +14,7 @@
   boot.kernelModules = ["kvm-intel" "coretemp" "nct6775"];
   boot.kernelParams = [
     "acpi_osi=linux"
-    "intel_pstate=passive"
+    "intel_pstate=active"
     "acpi_rev_override=1"
     "mem_sleep_default=s2idle"
     "pcie_aspm=off"
