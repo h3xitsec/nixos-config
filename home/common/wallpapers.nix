@@ -3,7 +3,7 @@
 }: {
 
   # Copy custom scripts to profile
-  home.file."Pictures/Wallpapers" = {
+  home.file."Wallpapers" = {
     source = ./files/wallpapers;
     recursive = true;
   };
