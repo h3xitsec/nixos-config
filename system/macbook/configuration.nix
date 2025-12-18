@@ -3,11 +3,42 @@
   imports = [
     ./users.nix
   ];
+  system.primaryUser = "h3x";
+  system.defaults = {
+    loginwindow = {
+      GuestEnabled = false;
+      DisableConsoleAccess = true;
+    };
+
+    finder = {
+      AppleShowAllFiles = true; # hidden files
+      AppleShowAllExtensions = true; # file extensions
+      _FXShowPosixPathInTitle = true; # title bar full path
+      ShowPathbar = true; # breadcrumb nav at bottom
+      ShowStatusBar = true; # file count & disk space
+    };
+
+    NSGlobalDomain = {
+      NSAutomaticSpellingCorrectionEnabled = false;
+      NSAutomaticCapitalizationEnabled = false;
+      NSAutomaticPeriodSubstitutionEnabled = false;
+      NSAutomaticWindowAnimationsEnabled = false;
+    };
+  };
   environment.systemPackages  = with pkgs; [
         vim
-        #vscode
         discord
   ];
+  homebrew = {
+    enable = true;
+    # onActivation.cleanup = "uninstall";
+
+    taps = [];
+    brews = [];
+    casks = [
+      "unnaturalscrollwheels"
+    ];
+  };
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = "nix-command flakes";
   nix.settings.substituters = [ "https://cache.nixos.org" ];
@@ -20,4 +51,7 @@
 
   # The platform the configuration will be used on.
   nixpkgs.hostPlatform = "aarch64-darwin";
+
+  # Sudo fingerprint
+  security.pam.services.sudo_local.touchIdAuth = true;
 }

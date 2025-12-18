@@ -15,6 +15,18 @@
     home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
+
+    # Optional: Declarative tap management
+    homebrew-core = {
+      url = "github:homebrew/homebrew-core";
+      flake = false;
+    };
+    homebrew-cask = {
+      url = "github:homebrew/homebrew-cask";
+      flake = false;
+    };
+
     niri = {
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -48,13 +60,19 @@
     nixpkgs,
     nixpkgs-unstable,
     nixpkgs-darwin,
+    nix-homebrew,
+    homebrew-cask,
+    homebrew-core,
     darwin,
     nixos-hardware,
     nixvim,
     home-manager,
     alejandra,
     ...
-  }: {
+  }: 
+  let
+    darwinSystems = [ "aarch64-darwin" "x86_64-darwin" ];
+  in {
     formatter = {
       x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
     };
@@ -112,6 +130,34 @@
     darwinConfigurations."h3xmac" = darwin.lib.darwinSystem {
       modules = [ 
         ./system/macbook/configuration.nix
+        nix-homebrew.darwinModules.nix-homebrew
+        {
+          nix-homebrew = {
+            # Install Homebrew under the default prefix
+            enable = true;
+
+            # Apple Silicon Only: Also install Homebrew under the default Intel prefix for Rosetta 2
+            enableRosetta = true;
+
+            # User owning the Homebrew prefix
+            user = "h3x";
+
+            # Optional: Declarative tap management
+            taps = {
+              "homebrew/homebrew-core" = homebrew-core;
+              "homebrew/homebrew-cask" = homebrew-cask;
+            };
+
+            # Optional: Enable fully-declarative tap management
+            #
+            # With mutableTaps disabled, taps can no longer be added imperatively with `brew tap`.
+            mutableTaps = false;
+          };
+        }
+        # Optional: Align homebrew taps config with nix-homebrew
+        ({config, ...}: {
+          homebrew.taps = builtins.attrNames config.nix-homebrew.taps;
+        })
         home-manager.darwinModules.home-manager {
           home-manager = {
             useGlobalPkgs = true;
