@@ -21,6 +21,7 @@ in {
     ./apps/caido.nix
     ../common/apps/vscode.nix
     ../common/apps/git.nix
+    ../common/wallpapers.nix
   ];
 
   # Copy custom scripts to profile
