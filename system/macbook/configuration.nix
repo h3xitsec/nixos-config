@@ -37,9 +37,7 @@
 
     taps = [];
     brews = [];
-    casks = [
-      "unnaturalscrollwheels"
-    ];
+    casks = [];
   };
   # Nix settings now handled by shared module ../../lib/shared/nix-settings.nix
   # nixpkgs.config.allowUnfree and nix.settings are set there
