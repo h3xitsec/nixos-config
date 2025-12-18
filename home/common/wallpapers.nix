@@ -3,7 +3,7 @@
 }: {
 
   # Copy custom scripts to profile
-  xdg.configFile."wallpapers" = {
+  home.file."Pictures/Wallpapers" = {
     source = ./files/wallpapers;
     recursive = true;
   };
