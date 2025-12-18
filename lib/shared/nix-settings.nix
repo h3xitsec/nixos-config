@@ -8,7 +8,6 @@
       max-jobs = "auto";
 
       # Store optimization
-      auto-optimise-store = true;
       min-free = 536870912; # 512MB
       max-free = 1073741824; # 1GB
 
@@ -41,9 +40,10 @@
     # Garbage collection configuration
     gc = {
       automatic = true;
-      dates = "weekly";
+      interval = { Weekday = 0; Hour = 0; Minute = 0; };
       options = "--delete-older-than 30d";
     };
+    optimise.automatic = true;
   };
 
   # Common nixpkgs configuration
