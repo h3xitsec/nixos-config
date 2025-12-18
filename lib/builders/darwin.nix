@@ -13,14 +13,5 @@ inputs.darwin.lib.darwinSystem {
   modules = [
     # Apply shared configuration
     ../shared/nix-settings.nix
-    
-    # Home Manager integration
-    inputs.home-manager.darwinModules.home-manager
-    {
-      home-manager = {
-        useGlobalPkgs = true;
-        extraSpecialArgs = specialArgs;
-      };
-    }
   ] ++ modules;
 }

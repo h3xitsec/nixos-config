@@ -96,15 +96,21 @@
           # Alejandra formatter
           {environment.systemPackages = [alejandra.defaultPackage."x86_64-linux"];}
 
-          # Home Manager user configuration
+          # Home Manager integration
+          home-manager.nixosModules.home-manager
           {
-            home-manager.users.h3x.imports = [
-              inputs.nixvim.homeModules.nixvim
-              inputs.nix-index.homeModules.nix-index
-              inputs.dankMaterialShell.homeModules.dankMaterialShell.default
-              inputs.dankMaterialShell.homeModules.dankMaterialShell.niri
-              ./home/xps15
-            ];
+            home-manager = {
+              backupFileExtension = "bak";
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.h3x.imports = [
+                inputs.nixvim.homeModules.nixvim
+                inputs.nix-index.homeModules.nix-index
+                inputs.dankMaterialShell.homeModules.dankMaterialShell.default
+                inputs.dankMaterialShell.homeModules.dankMaterialShell.niri
+                ./home/xps15
+              ];
+            };
           }
         ];
       };
@@ -144,11 +150,15 @@
         ({config, ...}: {
           homebrew.taps = builtins.attrNames config.nix-homebrew.taps;
         })
-        # Home Manager user configuration
+        # Home Manager integration
+        home-manager.darwinModules.home-manager
         {
-          home-manager.users.h3x.imports = [
-            ./home/macbook
-          ];
+          home-manager = {
+            useGlobalPkgs = true;
+            users.h3x.imports = [
+              ./home/macbook
+            ];
+          };
         }
       ];
     };

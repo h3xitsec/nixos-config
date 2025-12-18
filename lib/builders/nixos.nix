@@ -14,17 +14,6 @@ inputs.nixpkgs.lib.nixosSystem {
     # Apply shared configuration
     ../shared/nix-settings.nix
     
-    # Home Manager integration
-    inputs.home-manager.nixosModules.home-manager
-    {
-      home-manager = {
-        backupFileExtension = "bak";
-        useGlobalPkgs = true;
-        useUserPackages = true;
-        extraSpecialArgs = specialArgs;
-      };
-    }
-    
     # Default overlays
     {
       nixpkgs.overlays = [
