@@ -7,6 +7,23 @@
   ];
   system.primaryUser = "h3x";
   system.defaults = {
+    dock = {
+      autohide = true;
+      orientation = "bottom";
+      show-process-indicators = false;
+      show-recents = false;
+      persistent-apps = [
+        "/System/Cryptexes/App/System/Applications/Safari.app"
+        "/System/Applications/Mail.app"
+        "/System/Applications/TV.app"
+        "/Applications/Nix Apps/iTerm2.app"
+        "/Users/h3x/Applications/Home Manager Apps/Visual Studio Code.app"
+        "/Applications/BambuStudio.app"
+        "/Applications/Caido.app"
+        "/Applications/1Password.app"
+      ];
+    };
+    # Other system settings...
     loginwindow = {
       GuestEnabled = false;
       DisableConsoleAccess = true;
@@ -28,9 +45,9 @@
     };
   };
   environment.systemPackages  = with pkgs; [
-        vim
-        discord
-        iterm2
+    vim
+    discord
+    iterm2
   ];
   homebrew = {
     enable = true;
@@ -44,8 +61,6 @@
       "logi-options+"
     ];
   };
-  # Nix settings now handled by shared module ../../lib/shared/nix-settings.nix
-  # nixpkgs.config.allowUnfree and nix.settings are set there
   programs.zsh.enable = true;
 
   # Used for backwards compatibility, please read the changelog before changing.
