@@ -8,19 +8,21 @@
   system.primaryUser = "h3x";
   system.defaults = {
     dock = {
-      autohide = true;
+      autohide = false;
       orientation = "bottom";
       show-process-indicators = false;
       show-recents = false;
       persistent-apps = [
         "/System/Cryptexes/App/System/Applications/Safari.app"
         "/System/Applications/Mail.app"
+        "/System/Applications/Music.app"
         "/System/Applications/TV.app"
         "/Applications/Nix Apps/iTerm2.app"
         "/Users/h3x/Applications/Home Manager Apps/Visual Studio Code.app"
         "/Applications/BambuStudio.app"
         "/Applications/Caido.app"
         "/Applications/1Password.app"
+        "/Users/h3x/Applications/Autodesk Fusion.app"
       ];
     };
     # Other system settings...
@@ -59,6 +61,7 @@
       "caido"
       "1password"
       "logi-options+"
+      "autodesk-fusion"
     ];
   };
   programs.zsh.enable = true;
