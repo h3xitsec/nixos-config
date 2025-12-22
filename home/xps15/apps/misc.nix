@@ -2,7 +2,7 @@
   home.packages = with pkgs; [
     # Applications
     obsidian
-    vesktop
+    discord
     telegram-desktop
     parsec-bin
     code-cursor
