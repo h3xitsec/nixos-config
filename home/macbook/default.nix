@@ -14,6 +14,7 @@
   
   home = {
     stateVersion = "25.11";
+    username = "h3x";
     
     # Modern CLI tools (shared with XPS15)
     packages = with pkgs; [
