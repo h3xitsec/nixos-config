@@ -23,6 +23,7 @@
           "docker"
           "input"
           "plugdev"
+          "power"
         ];
       };
     };
