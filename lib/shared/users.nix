@@ -1,7 +1,8 @@
 # Shared user management patterns and templates
-{ pkgs, lib, ... }:
-{
-  # Common user template function
+# This file exports mkUser as a function that can be imported
+{ pkgs, lib }:
+let
+  # Helper function to create a user configuration
   mkUser = {
     username ? "h3x",
     description ? "h3x", 
@@ -25,45 +26,33 @@
     ] else [];
     
     allGroups = baseGroups ++ devGroups ++ extraGroups;
+    
+    # Build user config conditionally
+    userAttrs = 
+      if isNixOS then
+        {
+          inherit description;
+          createHome = true;
+          extraGroups = allGroups;
+          isNormalUser = true;
+          group = username;
+        } // (if uid != null then { inherit uid; } else {})
+      else
+        {
+          inherit description;
+          createHome = true;
+          extraGroups = allGroups;
+          home = "/Users/${username}";
+        };
+    
+    # Build groups conditionally
+    groupsAttrs = if isNixOS then {
+      ${username} = {};
+    } else {};
   in
   {
-    users.users.${username} = lib.mkMerge [
-      # Common configuration for all platforms
-      {
-        inherit description;
-        createHome = true;
-        extraGroups = allGroups;
-      }
-      
-      # NixOS-specific configuration
-      (lib.mkIf isNixOS {
-        isNormalUser = true;
-        group = username;
-        uid = lib.mkIf (uid != null) uid;
-      })
-      
-      # Darwin-specific configuration  
-      (lib.mkIf (!isNixOS) {
-        home = "/Users/${username}";
-      })
-    ];
-    
-    # Create user group on NixOS
-    users.groups = lib.mkIf isNixOS {
-      ${username} = {};
-    };
+    users.users.${username} = userAttrs;
+    users.groups = groupsAttrs;
   };
-
-  # Common sudo configuration for development
-  sudoConfig = {
-    security.sudo.extraConfig = ''
-      # Extended timeout for convenience
-      Defaults timestamp_timeout=30
-      # Allow wheel group full access
-      %wheel ALL=(ALL:ALL) NOPASSWD: ALL
-      Defaults !requiretty
-      # Preserve environment variables for development tools
-      Defaults env_keep += "CURSOR_* ELECTRON_* VSCODE_* DISPLAY XAUTHORITY"
-    '';
-  };
-}
+in
+mkUser

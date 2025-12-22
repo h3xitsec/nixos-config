@@ -17,6 +17,9 @@
 
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
 
+    # Flake utilities for better system handling
+    flake-utils-plus.url = "github:gytis-ivaskevicius/flake-utils-plus";
+
     # Optional: Declarative tap management
     homebrew-core = {
       url = "github:homebrew/homebrew-core";
@@ -68,6 +71,7 @@
     nixvim,
     home-manager,
     alejandra,
+    flake-utils-plus,
     ...
   }:
   let
@@ -80,6 +84,22 @@
     };
 
     overlays = import ./overlays.nix {inherit inputs;};
+
+    # Export reusable NixOS modules
+    nixosModules = {
+      shared-settings = ./lib/shared/nix-settings.nix;
+      shared-users = ./lib/shared/users.nix;
+      shared-packages = ./lib/shared/packages.nix;
+      xps15-base = ./system/xps15/configuration.nix;
+      macbook-base = ./system/macbook/configuration.nix;
+    };
+
+    # Export reusable Darwin modules
+    darwinModules = {
+      shared-settings = ./lib/shared/nix-settings.nix;
+      shared-users = ./lib/shared/users.nix;
+      macbook-base = ./system/macbook/configuration.nix;
+    };
 
     # XPS15
     nixosConfigurations = {
