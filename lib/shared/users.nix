@@ -40,8 +40,6 @@ let
       else
         {
           inherit description;
-          createHome = true;
-          extraGroups = allGroups;
           home = "/Users/${username}";
         };
     
