@@ -106,8 +106,8 @@
               users.h3x.imports = [
                 inputs.nixvim.homeModules.nixvim
                 inputs.nix-index.homeModules.nix-index
-                inputs.dankMaterialShell.homeModules.dankMaterialShell.default
-                inputs.dankMaterialShell.homeModules.dankMaterialShell.niri
+                inputs.dankMaterialShell.homeModules.dank-material-shell
+                inputs.dankMaterialShell.homeModules.niri
                 ./home/xps15
               ];
             };
