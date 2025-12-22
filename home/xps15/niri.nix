@@ -5,7 +5,7 @@
 }: {
   imports = [];
   # Enable DankMaterialShell
-  programs.dankMaterialShell = {
+  programs.dank-material-shell = {
     enable = true;
     enableDynamicTheming = true;
     default.settings = {

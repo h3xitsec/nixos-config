@@ -72,9 +72,6 @@
     libfprint-2-tod1-goodix
   ];
   
-  # Fix for hanging reboot
-  systemd.user.extraConfig = "DefaultTimeoutStopSec=10s";
-
   # State version
   system.stateVersion = "25.11";
 }
