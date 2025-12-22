@@ -5,9 +5,7 @@
 }: {
   # Fingerprint reader
   services.fprintd.enable = true;
-  services.fprintd.tod.enable = true;
-  services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix;
-
+  
   # Keyring
   services.gnome.gnome-keyring.enable = true;
   systemd.services.fprintd = {
