@@ -176,6 +176,7 @@
           home-manager = {
             useGlobalPkgs = true;
             users.h3x.imports = [
+              inputs.nix-index.homeModules.nix-index
               ./home/macbook
             ];
           };
