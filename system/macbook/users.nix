@@ -14,6 +14,4 @@ let
     isNixOS = false;
   };
 in
-{
-  users = userConfig;
-}
+userConfig
