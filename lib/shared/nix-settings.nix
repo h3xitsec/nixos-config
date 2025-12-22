@@ -37,9 +37,6 @@
 
       # Build sandboxing for security and reproducibility
       sandbox = true;
-
-      # Auto-optimise store to save space
-      auto-optimise-store = true;
     };
 
     # Use stable nix package
