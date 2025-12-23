@@ -15,6 +15,7 @@
       persistent-apps = [
         "/System/Cryptexes/App/System/Applications/Safari.app"
         "/System/Applications/Mail.app"
+        "/System/Applications/Messages.app"
         "/System/Applications/Music.app"
         "/System/Applications/TV.app"
         "/Applications/Nix Apps/iTerm2.app"
