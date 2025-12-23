@@ -23,10 +23,7 @@
       initial_window_width = 1200;
       initial_window_height = 600;
       map = let
-        mappings = [
-          # "f1 launch --allow-remote-control kitty +kitten broadcast"
-          # "f2 launch --title 'htop overlay' --type=overlay screen -d -RR htop htop"
-        ];
+        mappings = [];
       in (builtins.concatStringsSep "\nmap " mappings);
     };
   };
