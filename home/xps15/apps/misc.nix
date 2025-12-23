@@ -5,7 +5,7 @@
     discord
     telegram-desktop
     parsec-bin
-    code-cursor
+    unstable.code-cursor
     github-desktop
     unstable.claude-code
     
@@ -15,7 +15,6 @@
     remmina
     gnupg.out
     go
-    wireshark
     docker
     docker-compose
     protonvpn-gui
