@@ -9,6 +9,9 @@
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
+    shellAliases = {
+      vim = "nvim";
+    };
     plugins = [
       {
         name = "zsh-nix-shell";

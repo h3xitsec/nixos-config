@@ -160,6 +160,7 @@
           home-manager = {
             useGlobalPkgs = true;
             users.h3x.imports = [
+              inputs.nixvim.homeModules.nixvim
               inputs.nix-index.homeModules.nix-index
               ./home/macbook
             ];

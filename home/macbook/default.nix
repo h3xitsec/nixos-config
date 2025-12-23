@@ -10,6 +10,7 @@
     ../common/apps/zsh.nix
     ../common/wallpapers.nix
     ../common/session-variables.nix
+    ../common/apps/nixvim.nix
   ];
   
   home = {
