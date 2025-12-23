@@ -15,11 +15,19 @@
     # Firewall with nftables
     nftables.enable = true;
     firewall = {
+      enable = true;  # Explicitly enable firewall
       trustedInterfaces = [
         "wlp0s20f3"
         "incusbr*"
         "virbr*"
         "vboxnet1"
+      ];
+      # Allow common services
+      allowedTCPPorts = [
+        # Add any required TCP ports here
+      ];
+      allowedUDPPorts = [
+        # Add any required UDP ports here
       ];
     };
   };

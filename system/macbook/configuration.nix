@@ -2,7 +2,7 @@
 {
   imports = [
     ./users.nix
-    # Import shared nix settings
+    # Import shared modules
     ../../lib/shared/nix-settings.nix
   ];
   system.primaryUser = "h3x";

@@ -13,6 +13,7 @@ inputs.nixpkgs.lib.nixosSystem {
   modules = [
     # Apply shared configuration
     ../shared/nix-settings.nix
+    ../shared/validation.nix 
     
     # Default overlays
     {

@@ -49,7 +49,6 @@ in {
       ms-vscode-remote.remote-ssh
       ms-azuretools.vscode-docker
       hashicorp.terraform
-      kilocode.kilo-code
     ];
     profiles.default.userSettings = {
       "editor.fontFamily" = "'M+1Code Nerd Font','Droid Sans Mono', 'monospace', monospace, 'JetBrainsMono Nerd Font'";

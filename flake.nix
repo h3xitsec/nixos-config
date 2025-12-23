@@ -17,6 +17,10 @@
 
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
 
+    # Flake utilities for better system handling
+    flake-utils-plus.url = "github:gytis-ivaskevicius/flake-utils-plus";
+
+    # Optional: Declarative tap management
     homebrew-core = {
       url = "github:homebrew/homebrew-core";
       flake = false;
@@ -67,6 +71,7 @@
     nixvim,
     home-manager,
     alejandra,
+    flake-utils-plus,
     ...
   }:
   let
@@ -155,6 +160,7 @@
           home-manager = {
             useGlobalPkgs = true;
             users.h3x.imports = [
+              inputs.nix-index.homeModules.nix-index
               ./home/macbook
             ];
           };
