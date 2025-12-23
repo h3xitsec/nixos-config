@@ -2,7 +2,7 @@
   programs.git = {
     enable = true;
     settings = {
-      user.email = "connect@h3x.it";
+      user.email = "h3xit@protonmail.com";
       user.name = "h3xit";
       init.defaultBranch = "main";
       credential.helper = "store";
