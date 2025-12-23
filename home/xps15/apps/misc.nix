@@ -15,7 +15,6 @@
     remmina
     gnupg.out
     go
-    wireshark
     docker
     docker-compose
     protonvpn-gui

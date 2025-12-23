@@ -1,6 +1,6 @@
 # Shared package definitions for cross-platform use
 { pkgs, ... }:
-{
+let
   # Core development tools available on all systems
   core-dev = with pkgs; [
     vim
@@ -45,4 +45,11 @@
     tmux
     zsh
   ];
+in
+{
+  # Individual package categories (for selective inclusion)
+  inherit core-dev system-utils networking development shell;
+
+  # Combined package list for convenience (all shared packages)
+  all = core-dev ++ system-utils ++ networking ++ development ++ shell;
 }

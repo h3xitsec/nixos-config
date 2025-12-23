@@ -16,7 +16,7 @@
     ./packages.nix
     ./1password.nix
     ./docker.nix
-    # Import shared nix settings
+    # Import shared modules
     ../../lib/shared/nix-settings.nix
   ];
   programs.dconf.enable = true;

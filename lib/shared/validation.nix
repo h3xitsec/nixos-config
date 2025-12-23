@@ -8,7 +8,7 @@
       message = "Nix experimental features must be enabled for flakes support";
     }
     {
-      assertion = config.nix.settings.auto-optimise-store == true;
+      assertion = config.nix.optimise.automatic == true;
       message = "Auto store optimization should be enabled for better disk usage";
     }
     {

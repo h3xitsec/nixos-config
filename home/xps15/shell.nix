@@ -2,17 +2,7 @@
   config,
   pkgs,
   ...
-}: let
-  lang = icon: color: {
-    symbol = icon;
-    format = "[$symbol ](${color})";
-  };
-  os = icon: fg: "[${icon} ](fg:${fg})";
-  pad = {
-    left = "";
-    right = "";
-  };
-in {
+}: {
   imports = [
     ../common/apps/zsh.nix
   ];
