@@ -15,6 +15,6 @@
     };
   };
   programs.zsh.shellAliases = {
-      vim = "nvim";
-    };
+    vim = "nvim";
+  };
 }
