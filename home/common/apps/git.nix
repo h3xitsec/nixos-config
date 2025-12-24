@@ -8,5 +8,6 @@
       credential.helper = "store";
       push.autoSetupRemote = true;
     };
+    lfs.enable = true;
   };
 }
