@@ -10,7 +10,7 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     shellAliases = {
-      vim = "nvim";
+      # alias = "command";
     };
     plugins = [
       {
