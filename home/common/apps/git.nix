@@ -8,6 +8,6 @@
       credential.helper = "store";
       push.autoSetupRemote = true;
     };
-    lfs.enable = true;
+    lfs.enable = true; # Needed for github-desktop to work without error
   };
 }
