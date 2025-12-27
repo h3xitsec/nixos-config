@@ -43,7 +43,7 @@
       options iwlmvm power_scheme=3
     '';
 
-    boot.blacklistedKernelModules = ["spd5118" "nouveau"];
+    boot.blacklistedKernelModules = ["spd5118" "nouveau" ];
     boot.kernelPackages = pkgs.linuxPackages_latest;
 
     # Graphics hardware

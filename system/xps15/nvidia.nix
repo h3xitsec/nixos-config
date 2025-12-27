@@ -18,12 +18,13 @@ in {
   environment.systemPackages = [nvidia-offload];
 
   # Blacklist nouveau (open-source NVIDIA driver) to prevent conflicts
-  boot.blacklistedKernelModules = ["nouveau" "ath3k"];
+  boot.blacklistedKernelModules = ["nouveau" "ath3k" "nova_core"];
   
   # Enable NVIDIA DRM modesetting for better Wayland support
   boot.kernelParams = ["nvidia_drm.modeset=1" "nvidia_drm.fbdev=1"];
   boot.extraModprobeConfig = ''
     blacklist nouveau
+    blacklist nova_core
     options nouveau modeset=0
   '';
 
