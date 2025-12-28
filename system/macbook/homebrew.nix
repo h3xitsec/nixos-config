@@ -13,6 +13,7 @@
       "autodesk-fusion"
       "parsec"
       "bambu-studio"
+      "github"
     ];
   };
 }
