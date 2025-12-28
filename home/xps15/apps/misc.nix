@@ -2,7 +2,7 @@
   home.packages = with pkgs; [
     # Applications
     obsidian
-    discord
+    #discord
     telegram-desktop
     parsec-bin
     unstable.code-cursor

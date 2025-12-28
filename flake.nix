@@ -54,7 +54,13 @@
 
     nixvim.url = "github:nix-community/nixvim/nixos-25.11";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
-    
+
+    stylix.url = "github:danth/stylix/release-25.11";
+    stylix.inputs.nixpkgs.follows = "nixpkgs";
+    nixcord = {
+      url = "github:kaylorben/nixcord";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     #apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
   };
 
@@ -97,6 +103,9 @@
           # System configuration
           ./system/xps15/configuration.nix
 
+          # Stylix theming
+          inputs.stylix.nixosModules.stylix
+
           # Alejandra formatter
           {environment.systemPackages = [alejandra.defaultPackage."x86_64-linux"];}
 
@@ -112,6 +121,7 @@
                 inputs.nix-index.homeModules.nix-index
                 inputs.dankMaterialShell.homeModules.dank-material-shell
                 inputs.dankMaterialShell.homeModules.niri
+                inputs.nixcord.homeModules.nixcord
                 ./home/xps15
               ];
             };

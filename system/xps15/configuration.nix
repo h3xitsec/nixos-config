@@ -17,6 +17,7 @@
     ./1password.nix
     ./docker.nix
     ./libvirtd-virtmanager.nix
+    ./stylix.nix
     # Import shared modules
     ../../lib/shared/nix-settings.nix
   ];
