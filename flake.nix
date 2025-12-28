@@ -172,6 +172,7 @@
             users.h3x.imports = [
               inputs.nixvim.homeModules.nixvim
               inputs.nix-index.homeModules.nix-index
+                inputs.nixcord.homeModules.nixcord
               ./home/macbook
             ];
           };
