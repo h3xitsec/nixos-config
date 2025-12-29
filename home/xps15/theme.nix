@@ -9,10 +9,19 @@
     kitty.enable = true;       # Terminal
     nixcord.enable = true;     # Nixcord
     nixcord.fonts.enable = true;
-    firefox.enable = true;     # Browser (uses userChrome.css)
+    firefox = {
+      enable = true;
+      profileNames = [ "h3xit" ];
+      colorTheme.enable = true;
+    };
     vscode.enable = true;      # VSCode
     gtk.enable = true;         # Already enabled by default
-    obsidian.enable = true;     # Obsidian
+    obsidian = {
+      enable = true;
+      vaultNames = [ "obsidian" ];
+    };
+    gnome.enable = true;        # Gnome
+
 
     # niri.enable = true;        # Automatically imported by niri-flake
   };
@@ -35,8 +44,8 @@
   };
 
   # Force overwrite existing GTK config files that Stylix now manages
-  xdg.configFile."gtk-3.0/gtk.css".force = true;
-  xdg.configFile."gtk-4.0/gtk.css".force = true;
+  # xdg.configFile."gtk-3.0/gtk.css".force = true;
+  # xdg.configFile."gtk-4.0/gtk.css".force = true;
 
   # Qt theming is fully managed by Stylix (uses qtct)
 }
