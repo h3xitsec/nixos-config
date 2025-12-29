@@ -11,6 +11,7 @@
     ../common/wallpapers.nix
     ../common/session-variables.nix
     ../common/apps/nixvim.nix
+    ../common/apps/nixcord.nix
   ];
   
   home = {

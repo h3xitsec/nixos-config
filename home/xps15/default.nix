@@ -15,7 +15,9 @@ in {
     ./theme.nix
     ./niri.nix
     ./apps/browsers.nix
-    ./apps/editors.nix
+    ./apps/obsidian
+    ../common/apps/nixcord.nix
+    #./apps/editors.nix
     ../common/apps/nixvim.nix
     ./apps/tmux.nix
     ./apps/misc.nix

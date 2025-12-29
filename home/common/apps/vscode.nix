@@ -51,8 +51,9 @@ in {
       hashicorp.terraform
     ];
     profiles.default.userSettings = {
-      "editor.fontFamily" = "'M+1Code Nerd Font','Droid Sans Mono', 'monospace', monospace, 'JetBrainsMono Nerd Font'";
-      "terminal.integrated.fontFamily" = "'JetBrainsMono Nerd Font'";
+      # Use mkForce to override Stylix's font settings with our custom font stack
+      "editor.fontFamily" = lib.mkForce "'M+1Code Nerd Font','Droid Sans Mono', 'monospace', monospace, 'JetBrainsMono Nerd Font'";
+      "terminal.integrated.fontFamily" = lib.mkForce "'JetBrainsMono Nerd Font'";
       "explorer.confirmDelete" = false;
       "window.titleBarStyle" = "custom";
       "window.commandCenter" = true;

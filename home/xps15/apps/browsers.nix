@@ -7,7 +7,24 @@
 
   programs.firefox = {
     enable = true;
+    profiles = {
+      h3xit = {
+        settings = {
+          # Required for Stylix to inject its userChrome.css theming
+          "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+          # Auto-enable extensions installed in the profile directory
+          "extensions.autoDisableScopes" = 0;
+        };
+        extensions = {
+          force = true;
+        };
+      };
+    }; 
     policies = {
+      # Force-install and enable Firefox Color for Stylix theming
+      Extensions.Install = [
+        "https://addons.mozilla.org/firefox/downloads/latest/firefox-color/latest.xpi"
+      ];
       ExtensionSettings = with builtins; let
         extension = shortId: uuid: {
           name = uuid;

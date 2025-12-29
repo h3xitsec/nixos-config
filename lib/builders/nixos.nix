@@ -6,7 +6,7 @@ inputs.nixpkgs.lib.nixosSystem {
   inherit system;
   
   specialArgs = {
-    inherit inputs;
+    inherit inputs ;
     inherit (inputs.self) outputs;
   } // specialArgs;
 

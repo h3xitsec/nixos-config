@@ -34,10 +34,10 @@
       natural-scroll = true;
     };
   };
-  # Cursors
-  programs.niri.settings.cursor = {
-    theme = "capitaine-cursors";
-  };
+  # Cursors - theme is managed by Stylix
+  # programs.niri.settings.cursor = {
+  #   theme = "capitaine-cursors";
+  # };
   # Window Rules
   programs.niri.settings.window-rules = [
     {
@@ -68,16 +68,18 @@
       { proportion = 2. / 3.; }
       { proportion = 1. / 1.; }
     ];
+    # Focus ring and border colors are now managed by Stylix
+    # Uncomment below to override Stylix colors with custom values
     focus-ring = {
       width = 2;
-      active.color = "#7fc8ff";
-      inactive.color = "#505050";
+      # active.color = "#7fc8ff";
+      # inactive.color = "#505050";
     };
     border = {
       width = 3;
-      active.color = "#d8dee9";
-      inactive.color = "#434c5e";
-      urgent.color = "#bf616a";
+      # active.color = "#d8dee9";
+      # inactive.color = "#434c5e";
+      # urgent.color = "#bf616a";
     };
   };
   # Hotkey overlay
