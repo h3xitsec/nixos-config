@@ -13,6 +13,7 @@ in {
     ./shell.nix
     ./apps/terminal.nix
     ./theme.nix
+    #./noctalia.nix
     ./niri.nix
     ./apps/browsers.nix
     ./apps/obsidian

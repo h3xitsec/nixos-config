@@ -13,6 +13,7 @@
     ./security.nix
     ./users.nix
     ./niri.nix
+    #./noctalia-shell.nix
     ./packages.nix
     ./1password.nix
     ./docker.nix

@@ -2,7 +2,40 @@
   pkgs,
   config,
   ...
-}: {
+}: let 
+  # DankMaterialShell Commands
+  launcher_command = [ "dms" "ipc" "call" "spotlight" "toggle" ];
+  lock_command = [ "dms" "ipc" "call" "lock" "lock" ];
+  power_menu_command = [ "dms" "ipc" "call" "powermenu" "toggle" ];
+  multimedia_command = {
+    audio = {
+      raise = [ "dms" "ipc" "call" "audio" "increment" "3" ];
+      lower = [ "dms" "ipc" "call" "audio" "decrement" "3" ];
+      mute = [ "dms" "ipc" "call" "audio" "mute" ];
+    };
+    brightness = {
+      raise = [ "dms" "ipc" "call" "brightness" "increment" "5" "backlight:intel_backlight" ];
+      lower = [ "dms" "ipc" "call" "brightness" "decrement" "5" "backlight:intel_backlight" ];
+    };
+  };
+  
+  # Noctalia Shell Commands
+  # launcher_command = [ "noctalia-shell" "ipc" "call" "launcher" "toggle" ];
+  # lock_command = [ "noctalia-shell" "ipc" "call" "lockScreen" "lock" ];
+  # power_menu_command = [ "noctalia-shell" "ipc" "call" "sessionMenu" "toggle" ];
+  # multimedia_command = {
+  #   audio = {
+  #     raise = [ "noctalia-shell" "ipc" "call" "volume" "increase" ];
+  #     lower = [ "noctalia-shell" "ipc" "call" "volume" "decrease" ];
+  #     mute = [ "noctalia-shell" "ipc" "call" "volume" "muteOutput" ];
+  #   };
+  #   brightness = {
+  #     raise = [ "noctalia-shell" "ipc" "call" "brightness" "increase" ];
+  #     lower = [ "noctalia-shell" "ipc" "call" "brightness" "decrease" ];
+  #   };
+  # };
+in  
+{
   imports = [];
   # Enable DankMaterialShell
   programs.dank-material-shell = {
@@ -19,6 +52,13 @@
   };
 
   ## Niri Settings
+  programs.niri.settings.spawn-at-startup = [
+    {
+      command = [
+        "noctalia-shell"
+      ];
+    }
+  ];
   programs.niri.settings.prefer-no-csd = true;
   # Outputs
   programs.niri.settings.outputs."eDP-1" = {
@@ -94,7 +134,7 @@
   # Bindings
   programs.niri.settings.binds = with config.lib.niri.actions; {
     # App
-    "Mod+D".action.spawn = [ "dms" "ipc" "call" "spotlight" "toggle" ];
+    "Mod+D".action.spawn = launcher_command;
     "Mod+D".hotkey-overlay.title = "Open App Launcher";
     "Mod+T".action.spawn = "kitty";
     "Mod+T".hotkey-overlay.title = "Open Terminal";
@@ -139,20 +179,20 @@
     # Misc
     "Mod+Shift+O".action = show-hotkey-overlay;
     "Mod+Q".action = close-window;
-    "Mod+Shift+Q".action.spawn = [ "dms" "ipc" "call" "powermenu" "toggle" ];
+    "Mod+Shift+Q".action.spawn = power_menu_command;
     "Mod+Shift+Q".hotkey-overlay.title = "Open Powermenu";
     "Mod+Tab".action = toggle-overview;
     "Mod+Tab".repeat = false;
-    "Mod+L".action.spawn = [ "dms" "ipc" "call" "lock" "lock" ];
+    "Mod+L".action.spawn = lock_command;
     "Mod+L".hotkey-overlay.title = "Lock session";
     "Mod+Shift+S".action.spawn = [ "~/.config/scripts/screenshot.sh" ];
     "Mod+Shift+S".hotkey-overlay.title = "Screenshot: screen region";
     # Multimedia using DMS IPC calls
-    "XF86AudioRaiseVolume".action.spawn = [ "dms" "ipc" "call" "audio" "increment" "3" ];
-    "XF86AudioLowerVolume".action.spawn = [ "dms" "ipc" "call" "audio" "decrement" "3" ];
-    "XF86AudioMute".action.spawn = [ "dms" "ipc" "call" "audio" "mute" ];
-    "XF86MonBrightnessUp".action.spawn = [ "dms" "ipc" "call" "brightness" "increment" "5" "backlight:intel_backlight" ];
-    "XF86MonBrightnessDown".action.spawn = [ "dms" "ipc" "call" "brightness" "decrement" "5" "backlight:intel_backlight" ];
+    "XF86AudioRaiseVolume".action.spawn = multimedia_command.audio.raise;
+    "XF86AudioLowerVolume".action.spawn = multimedia_command.audio.lower;
+    "XF86AudioMute".action.spawn = multimedia_command.audio.mute;
+    "XF86MonBrightnessUp".action.spawn = multimedia_command.brightness.raise;
+    "XF86MonBrightnessDown".action.spawn = multimedia_command.brightness.lower;
 
   };
   # Environment

@@ -21,8 +21,7 @@
       vaultNames = [ "obsidian" ];
     };
     gnome.enable = true;        # Gnome
-
-
+    noctalia-shell.enable = true;
     # niri.enable = true;        # Automatically imported by niri-flake
   };
 
