@@ -1,12 +1,5 @@
 { pkgs, ... }:
 {
-  imports = [
-    ./users.nix
-    ./dock.nix
-    ./homebrew.nix
-    # Import shared modules
-    ../../lib/shared/nix-settings.nix
-  ];
   system.primaryUser = "h3x";
   system.defaults = {
     loginwindow = {

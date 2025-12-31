@@ -96,10 +96,24 @@
         system = "x86_64-linux";
         modules = [
           # Dell XPS 15-9520 hardware support
-          nixos-hardware.nixosModules.dell-xps-15-9520
-
+          nixos-hardware.nixosModules.dell-xps-15-9520  
+          ./lib/shared/nix-settings.nix
           # System configuration
-          ./system/xps15/configuration.nix
+          ./hosts/h3xlptp/configuration.nix
+          ./hosts/h3xlptp/hardware.nix
+          ./hosts/h3xlptp/users.nix
+
+          ./modules/nixos/hardware/nvidia.nix
+          
+          
+          ./modules/nixos/de/niri.nix
+          ./modules/nixos/de/stylix.nix
+
+          ./modules/nixos/apps/1password.nix
+          ./modules/nixos/apps/docker.nix
+          ./modules/nixos/apps/libvirtd-virtmanager.nix
+          ./modules/nixos/apps/obsidian.nix
+
 
           # Stylix theming
           inputs.stylix.nixosModules.stylix
@@ -120,7 +134,30 @@
                 inputs.dankMaterialShell.homeModules.dank-material-shell
                 inputs.dankMaterialShell.homeModules.niri
                 inputs.nixcord.homeModules.nixcord
-                ./home/xps15
+                
+                ./hosts/h3xlptp/home.nix
+
+                ./modules/home-manager/de/niri.nix
+                ./modules/home-manager/de/theme.nix
+                ./modules/home-manager/de/wallpapers.nix
+
+                ./modules/home-manager/shell/shell.nix
+                ./modules/home-manager/shell/common-session-variables.nix
+                ./modules/home-manager/shell/session-variables.nix
+                ./modules/home-manager/shell/tmux.nix
+                ./modules/home-manager/shell/fhs-env.nix
+                ./modules/home-manager/shell/git.nix
+                ./modules/home-manager/shell/nixvim.nix
+                ./modules/home-manager/shell/zsh.nix
+
+                ./modules/home-manager/apps/browsers.nix
+                ./modules/home-manager/apps/caido.nix
+                #./modules/home-manager/apps/headlamp.nix
+                ./modules/home-manager/apps/misc.nix
+                ./modules/home-manager/apps/terminal.nix
+                ./modules/home-manager/apps/obsidian.nix
+                ./modules/home-manager/apps/vscode.nix
+                ./modules/home-manager/apps/nixcord.nix
               ];
             };
           }
@@ -133,7 +170,11 @@
       hostname = "h3xmac";
       system = "aarch64-darwin";
       modules = [
-        ./system/macbook/configuration.nix
+        ./hosts/h3xmac/configuration.nix
+        ./hosts/h3xmac/dock.nix
+        ./hosts/h3xmac/homebrew.nix
+        ./hosts/h3xmac/users.nix
+        ./lib/shared/nix-settings.nix
         nix-homebrew.darwinModules.nix-homebrew
         {
           nix-homebrew = {
@@ -171,7 +212,14 @@
               inputs.nixvim.homeModules.nixvim
               inputs.nix-index.homeModules.nix-index
               inputs.nixcord.homeModules.nixcord
-              ./home/macbook
+              ./hosts/h3xmac/home.nix
+              ./modules/home-manager/apps/vscode.nix
+              ./modules/home-manager/shell/git.nix
+              ./modules/home-manager/shell/zsh.nix
+              ./modules/home-manager/de/wallpapers.nix
+              ./modules/home-manager/shell/common-session-variables.nix
+              ./modules/home-manager/shell/nixvim.nix
+              ./modules/home-manager/apps/nixcord.nix
             ];
           };
         }

@@ -30,7 +30,7 @@
       }
       {
       name = "powerlevel10k-config";
-        src = ../files/p10k;
+        src = ../assets/p10k;
         file = "p10k.zsh";
       }
     ];

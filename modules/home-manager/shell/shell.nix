@@ -3,9 +3,6 @@
   pkgs,
   ...
 }: {
-  imports = [
-    ../common/apps/zsh.nix
-  ];
   
   # Modern CLI tools
   home.packages = with pkgs; [

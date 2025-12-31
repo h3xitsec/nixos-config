@@ -7,39 +7,17 @@
   ...
 }: 
 let 
-	headlampApp = import ./apps/headlamp.nix { inherit pkgs; };
+	headlampApp = import ../../modules/home-manager/apps/headlamp.nix { inherit pkgs; };
 in {
-  imports = [
-    ./shell.nix
-    ./apps/terminal.nix
-    ./theme.nix
-    #./noctalia.nix
-    ./niri.nix
-    ./apps/browsers.nix
-    ./apps/obsidian
-    ../common/apps/nixcord.nix
-    #./apps/editors.nix
-    ../common/apps/nixvim.nix
-    ./apps/tmux.nix
-    ./apps/misc.nix
-    ./apps/caido.nix
-    ./apps/fhs-env.nix
-    ./session-variables.nix
-    ../common/apps/vscode.nix
-    ../common/apps/git.nix
-    ../common/wallpapers.nix
-    ../common/session-variables.nix
-  ];
-
   # Copy custom scripts to profile
   xdg.configFile."scripts" = {
-    source = ./files/scripts;
+    source = ../../modules/home-manager/assets/scripts;
     recursive = true;
   };
 
   # Copy custom icons to profile
   xdg.dataFile."icons" = {
-    source = ./files/icons;
+    source = ../../modules/home-manager/assets/icons;
     recursive = true;
   };
 

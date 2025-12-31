@@ -4,7 +4,7 @@
 
   # Copy custom scripts to profile
   home.file."Wallpapers" = {
-    source = ./files/wallpapers;
+    source = ../assets/wallpapers;
     recursive = true;
   };
 }
