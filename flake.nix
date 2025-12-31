@@ -6,7 +6,7 @@
     
     # nix-darwin stuff
     #nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-25.11-darwin";
-    darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-25.11";
+    darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-unstable";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
     homebrew-core = {
       url = "github:homebrew/homebrew-core";
@@ -134,7 +134,7 @@
                 inputs.dankMaterialShell.homeModules.dank-material-shell
                 inputs.dankMaterialShell.homeModules.niri
                 inputs.nixcord.homeModules.nixcord
-                
+
                 ./hosts/h3xlptp/home.nix
 
                 ./modules/home-manager/de/niri.nix
