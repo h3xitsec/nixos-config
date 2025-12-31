@@ -2,25 +2,12 @@
   description = "h3xit's simplified NixOS configuration with Niri";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     
     # nix-darwin stuff
     #nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-25.11-darwin";
     darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-25.11";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
-    
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-
-    home-manager.url = "github:nix-community/home-manager/release-25.11";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
-    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
-
-    # Flake utilities for better system handling
-    flake-utils-plus.url = "github:gytis-ivaskevicius/flake-utils-plus";
-
-    # Optional: Declarative tap management
     homebrew-core = {
       url = "github:homebrew/homebrew-core";
       flake = false;
@@ -29,6 +16,16 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
+
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
+
+    # Flake utilities for better system handling
+    flake-utils-plus.url = "github:gytis-ivaskevicius/flake-utils-plus";
 
     niri = {
       url = "github:sodiboo/niri-flake";
@@ -52,10 +49,10 @@
     nix-index.url = "github:Mic92/nix-index-database";
     nix-index.inputs.nixpkgs.follows = "nixpkgs";
 
-    nixvim.url = "github:nix-community/nixvim/nixos-25.11";
+    nixvim.url = "github:nix-community/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
 
-    stylix.url = "github:danth/stylix/release-25.11";
+    stylix.url = "github:danth/stylix";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
     nixcord = {
       url = "github:kaylorben/nixcord";
@@ -68,8 +65,6 @@
   outputs = inputs @ {
     self,
     nixpkgs,
-    nixpkgs-unstable,
-    #nixpkgs-darwin,
     nix-homebrew,
     homebrew-cask,
     homebrew-core,
@@ -79,6 +74,8 @@
     home-manager,
     alejandra,
     flake-utils-plus,
+    dgop,
+    dankMaterialShell,
     ...
   }:
   let

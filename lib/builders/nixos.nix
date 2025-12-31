@@ -20,7 +20,6 @@ inputs.nixpkgs.lib.nixosSystem {
       nixpkgs.overlays = [
         inputs.niri.overlays.niri
         (import ../../overlays.nix {inherit inputs;}).fixups
-        (import ../../overlays.nix {inherit inputs;}).unstable-packages
       ];
     }
   ] ++ modules;

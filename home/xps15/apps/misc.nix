@@ -3,9 +3,9 @@
     # Applications
     telegram-desktop
     parsec-bin
-    unstable.code-cursor
+    code-cursor
     github-desktop
-    unstable.claude-code
+    claude-code
     
     # Tools
     libreoffice-qt
