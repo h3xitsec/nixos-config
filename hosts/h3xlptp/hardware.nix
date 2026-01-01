@@ -12,57 +12,18 @@
   };
 
   config = {
-    # Boot and kernel configuration
-    boot.initrd.systemd.enable = true;
-    boot.initrd.availableKernelModules = ["vmd" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc"];
-    boot.initrd.kernelModules = ["i915" "vfat" "nls_cp437" "nls_iso8859-1"];
-    boot.initrd.compressor = "zstd";
-    boot.initrd.compressorArgs = ["-19" "-T0"];
-
-    boot.kernelModules = ["kvm-intel" "coretemp" "nct6775"];
-    
-    boot.kernelParams = [
-      "acpi_osi=linux"
-      "intel_pstate=active"
-      "acpi_rev_override=1"
-      "mem_sleep_default=s2idle"
-      "pcie_aspm=off"
-      "quiet"
-      "splash"
-      "nowatchdog"
-    ] ++ lib.optionals config.hardware.disableMitigations [
-      "mitigations=off"  # WARNING: Disables CPU security mitigations - performance only
-    ];
-
-    boot.extraModulePackages = [];
-    boot.extraModprobeConfig = ''
-      blacklist nouveau
-      blacklist spd5118
-      options nouveau modeset=0
-      options iwlwifi power_save=1 disable_11ax=0 swcrypto=0 bt_coex_active=1
-      options iwlmvm power_scheme=3
-    '';
-
-    boot.blacklistedKernelModules = ["spd5118" "nouveau" ];
-    boot.kernelPackages = pkgs.linuxPackages_latest;
-
     # Graphics hardware
     hardware = {
       graphics.enable = true;
       graphics.enable32Bit = true;
       graphics.extraPackages = with pkgs; [
         intel-media-driver # VAAPI for new Intel GPUs
-        #intel-vaapi-driver # VAAPI for older Intel GPUs
         libva-vdpau-driver
         libvdpau-va-gl
         intel-compute-runtime # OpenCL
       ];
       enableRedistributableFirmware = true;
     };
-
-    # Filesystem mounts
-    # NOTE: UUIDs are system-specific! Update these for your installation.
-    # Find UUIDs with: lsblk -f or blkid
     
     # Root filesystem (BTRFS with subvolumes)
     fileSystems."/" = {
@@ -106,16 +67,6 @@
       enable = true;
       cpuFreqGovernor = "ondemand";
     };
-
-    # Thermal management
-    services.thermald.enable = true;
-
-    # Bluetooth
-    hardware.bluetooth.enable = true;
-    services.blueman.enable = true;
-
-    # Thunderbolt
-    services.hardware.bolt.enable = true;
 
     # Platform
     nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
