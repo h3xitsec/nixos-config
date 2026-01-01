@@ -1,107 +1,142 @@
 # NixOS Configuration
 
 This repository contains a NixOS configuration for:
-- **Dell XPS 15 Laptop** (h3xlptp) - Linux/NixOS
+- **Dell XPS 15 Laptop** (h3xlptp) - Linux/NixOS with Niri compositor
 - **MacBook Air M4** (h3xmac) - macOS/nix-darwin
 
 ## Structure
 
 ```
 .
-├── flake.nix                 # Main flake entry point
-├── overlays.nix              # Package overlays
-├── lib/                      # Shared library modules
-│   ├── builders/            # System builders (NixOS/Darwin)
-│   └── shared/              # Shared configuration modules
-│       ├── nix-settings.nix    # Nix settings (caches, GC, etc.)
-│       ├── packages.nix         # Shared package definitions
-│       └── users.nix            # Shared user management
-├── system/                   # System-specific configurations
-│   ├── xps15/               # Dell XPS 15 configuration
-│   │   ├── configuration.nix   # Main system config
-│   │   ├── hardware.nix        # Hardware-specific settings
-│   │   ├── boot.nix            # Boot configuration
-│   │   ├── networking.nix      # Network & firewall
-│   │   ├── nvidia.nix          # NVIDIA GPU configuration
-│   │   ├── power.nix           # Power management (TLP)
-│   │   ├── audio.nix           # Audio configuration
-│   │   ├── security.nix        # Security settings
-│   │   ├── users.nix           # User accounts
-│   │   ├── packages.nix        # System packages
-│   │   └── ...
-│   └── macbook/             # MacBook Air M4 configuration
-│       ├── configuration.nix   # Main system config
-│       └── users.nix           # User accounts
-└── home/                     # Home Manager configurations
-    ├── common/              # Shared home manager modules
-    │   ├── apps/            # Common applications
-    │   │   ├── git.nix
-    │   │   ├── vscode.nix
-    │   │   └── zsh.nix
-    │   ├── session-variables.nix  # Shared environment variables
-    │   └── wallpapers.nix
-    ├── xps15/               # XPS15-specific home config
-    │   ├── default.nix
-    │   ├── shell.nix
-    │   ├── session-variables.nix  # Wayland/NVIDIA variables
-    │   └── apps/            # XPS15-specific apps
-    └── macbook/             # MacBook-specific home config
-        └── default.nix
+├── flake.nix                    # Main flake entry point
+├── flake.lock                   # Locked flake inputs
+├── overlays.nix                 # Package overlays
+├── lib/                         # Library functions and shared modules
+│   ├── default.nix             # Library entry point
+│   ├── builders/               # System builders
+│   │   ├── darwin.nix         # Darwin/macOS builder
+│   │   └── nixos.nix          # NixOS builder
+│   └── shared/                 # Shared configuration
+│       ├── nix-settings.nix   # Nix settings (caches, GC, etc.)
+│       ├── packages.nix       # Shared package definitions
+│       ├── users.nix          # User management
+│       └── validation.nix     # Validation utilities
+├── hosts/                       # Host-specific configurations
+│   ├── h3xlptp/               # Dell XPS 15 (NixOS)
+│   │   ├── configuration.nix  # Main system config
+│   │   ├── hardware.nix       # Hardware settings
+│   │   ├── home.nix           # Home-manager config
+│   │   ├── users.nix          # User accounts
+│   │   └── modules/           # Host-specific NixOS modules
+│   │       ├── boot.nix       # Boot configuration
+│   │       ├── environment.nix
+│   │       ├── networking.nix # Network & firewall
+│   │       ├── programs.nix
+│   │       ├── security.nix   # Security settings
+│   │       └── services.nix
+│   └── h3xmac/                # MacBook Air M4 (nix-darwin)
+│       ├── configuration.nix  # Main system config
+│       ├── dock.nix           # Dock configuration
+│       ├── home.nix           # Home-manager config
+│       ├── homebrew.nix       # Homebrew packages
+│       └── users.nix          # User accounts
+└── modules/                     # Reusable modules
+    ├── home-manager/           # Home-manager modules
+    │   ├── apps/              # Application configurations
+    │   │   ├── browsers.nix   # Firefox, Chromium, etc.
+    │   │   ├── caido.nix      # Caido web security tool
+    │   │   ├── headlamp.nix   # Kubernetes dashboard
+    │   │   ├── misc.nix       # Miscellaneous apps
+    │   │   ├── nixcord.nix    # Discord via Nixcord
+    │   │   ├── obsidian.nix   # Obsidian notes
+    │   │   ├── terminal.nix   # Terminal emulators
+    │   │   └── vscode.nix     # VS Code configuration
+    │   ├── assets/            # Static assets
+    │   │   ├── icons/         # Custom application icons
+    │   │   ├── p10k/          # Powerlevel10k config
+    │   │   ├── scripts/       # Custom scripts
+    │   │   └── wallpapers/    # Desktop wallpapers
+    │   ├── de/                # Desktop environment
+    │   │   ├── niri.nix       # Niri compositor config
+    │   │   ├── noctalia.nix   # Noctalia theme
+    │   │   ├── theme.nix      # GTK/Qt theming
+    │   │   └── wallpapers.nix # Wallpaper management
+    │   └── shell/             # Shell configuration
+    │       ├── common-session-variables.nix
+    │       ├── fhs-env.nix    # FHS environment for binaries
+    │       ├── git.nix        # Git configuration
+    │       ├── nixvim.nix     # Neovim via Nixvim
+    │       ├── session-variables.nix
+    │       ├── shell.nix      # General shell settings
+    │       ├── tmux.nix       # Tmux configuration
+    │       └── zsh.nix        # Zsh configuration
+    └── nixos/                  # NixOS-specific modules
+        ├── apps/              # System applications
+        │   ├── 1password.nix  # 1Password integration
+        │   ├── docker.nix     # Docker configuration
+        │   ├── libvirtd-virtmanager.nix  # Virtualization
+        │   └── obsidian.nix   # Obsidian (system-level)
+        ├── de/                # Desktop environment
+        │   ├── niri.nix       # Niri system configuration
+        │   └── stylix.nix     # Stylix theming
+        └── hardware/          # Hardware configuration
+            └── nvidia.nix     # NVIDIA GPU settings
 ```
 
 ## Key Features
 
 ### Shared Configuration
-- **Packages**: Centralized package definitions in `lib/shared/packages.nix`
-- **Users**: Shared user management patterns in `lib/shared/users.nix`
-- **Nix Settings**: Optimized binary caches, GC, and build settings
+- **Library Functions**: Centralized builders and shared modules in `lib/`
+- **Packages**: Shared package definitions in `lib/shared/packages.nix`
+- **Nix Settings**: Optimized binary caches, GC, and build settings in `lib/shared/nix-settings.nix`
+- **Reusable Modules**: Common home-manager modules shared across hosts
 
-### XPS15-Specific
-- NVIDIA GPU with PRIME offload
-- TLP power management
-- Wayland/NVIDIA session variables
-- FHS environment for non-NixOS binaries
-- Hardware-specific kernel parameters
+### h3xlptp (Dell XPS 15)
+- **Niri Compositor**: Scrollable tiling Wayland compositor
+- **NVIDIA GPU**: Hybrid graphics with PRIME offload
+- **Stylix Theming**: System-wide consistent theming
+- **Wayland/NVIDIA**: Proper session variables for NVIDIA on Wayland
+- **FHS Environment**: For running non-NixOS binaries
+- **Docker & Virtualization**: Docker and libvirtd/virt-manager
+- **Hardware-specific**: Dell XPS 15-9520 support via nixos-hardware
+- **XDG Directories**: User directories mapped to `/mnt/data`
 
-### MacBook-Specific
-- Homebrew integration via nix-homebrew
-- macOS system defaults
-- Touch ID for sudo
+### h3xmac (MacBook Air M4)
+- **Homebrew Integration**: Fully declarative via nix-homebrew
+- **macOS Defaults**: Finder, login window, and system preferences
+- **Dock Configuration**: Declarative dock management
+- **Touch ID**: Touch ID for sudo authentication
+- **Rosetta 2**: Intel binary support via Rosetta
 
 ## System-Specific Values
 
-### XPS15 Hardware Configuration
-The following values in `system/xps15/hardware.nix` are system-specific and should be updated for your installation:
+### h3xlptp Hardware Configuration
+The following values in `hosts/h3xlptp/hardware.nix` are system-specific and should be updated for your installation:
 
 - **Disk UUIDs**: Update the UUIDs in `fileSystems` sections:
-  - Root filesystem UUID
-  - Boot partition UUID
-  - Data partition UUID
+  - Root filesystem UUID (BTRFS with `@` subvolume)
+  - Home filesystem UUID (BTRFS with `@home` subvolume)
+  - Boot partition UUID (EFI)
+  - Data partition UUID (`/mnt/data`)
 
-- **Network Interface**: Update `networking.nix` with your actual network interface name if different from `wlp0s20f3`
+- **Network Interface**: Update `hosts/h3xlptp/modules/networking.nix` with your actual network interface name if different
 
 ### Security Options
 
 #### CPU Mitigations
-By default, CPU security mitigations are **enabled** for security. To disable them for performance (SECURITY RISK), set in `system/xps15/hardware.nix`:
+By default, CPU security mitigations are **enabled** for security. To disable them for performance (SECURITY RISK), set in `hosts/h3xlptp/hardware.nix`:
 ```nix
 hardware.disableMitigations = true;
 ```
 
-#### Sudo NOPASSWD
-By default, sudo requires a password. To enable NOPASSWD for convenience (less secure), set in `system/xps15/users.nix`:
-```nix
-security.sudoNoPasswd = true;
-```
-
 ## Building
 
-### XPS15 (NixOS)
+### h3xlptp (NixOS)
 ```bash
 sudo nixos-rebuild switch --flake .#h3xlptp
 ```
 
-### MacBook (nix-darwin)
+### h3xmac (nix-darwin)
 ```bash
 darwin-rebuild switch --flake .#h3xmac
 ```
@@ -130,7 +165,19 @@ The configuration uses multiple binary caches for faster builds:
 
 Automatic GC runs weekly and deletes packages older than 14 days, freeing up to 10GB of space.
 
+## Flake Inputs
+
+Key flake inputs used in this configuration:
+- **nixpkgs** - NixOS unstable
+- **home-manager** - User environment management
+- **nix-darwin** - macOS system configuration
+- **nix-homebrew** - Declarative Homebrew management
+- **nixos-hardware** - Hardware-specific optimizations
+- **niri** - Niri compositor flake
+- **stylix** - System-wide theming
+- **nixvim** - Neovim configuration
+- **nixcord** - Discord client
+
 ## License
 
 This configuration is for personal use. Individual packages may have their own licenses.
-
