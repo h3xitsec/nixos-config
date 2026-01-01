@@ -3,9 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    
-    # nix-darwin stuff
-    #nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-25.11-darwin";
+
     darwin.url = "github:nix-darwin/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
     homebrew-core = {
@@ -152,7 +150,7 @@
 
                 ./modules/home-manager/apps/browsers.nix
                 ./modules/home-manager/apps/caido.nix
-                #./modules/home-manager/apps/headlamp.nix
+                ./modules/home-manager/apps/headlamp.nix
                 ./modules/home-manager/apps/misc.nix
                 ./modules/home-manager/apps/terminal.nix
                 ./modules/home-manager/apps/obsidian.nix

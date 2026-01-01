@@ -5,10 +5,7 @@
   inputs,
   username,
   ...
-}: 
-let 
-	headlampApp = import ../../modules/home-manager/apps/headlamp.nix { inherit pkgs; };
-in {
+}: {
   # Copy custom scripts to profile
   xdg.configFile."scripts" = {
     source = ../../modules/home-manager/assets/scripts;
@@ -50,11 +47,6 @@ in {
   home = {
     stateVersion = "25.11";
     username = "h3x";
-
-    # Additional packages (FHS env is in ./apps/fhs-env.nix)
-    packages = with pkgs; [
-      headlampApp
-    ];
 
     # Symlinks to /mnt/data
     file."data".source = config.lib.file.mkOutOfStoreSymlink "/mnt/data";
