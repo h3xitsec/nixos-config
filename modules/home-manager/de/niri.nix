@@ -2,23 +2,22 @@
   pkgs,
   config,
   ...
-}: let 
+}: let
   # DankMaterialShell Commands
-  launcher_command = [ "dms" "ipc" "call" "spotlight" "toggle" ];
-  lock_command = [ "dms" "ipc" "call" "lock" "lock" ];
-  power_menu_command = [ "dms" "ipc" "call" "powermenu" "toggle" ];
+  launcher_command = ["dms" "ipc" "call" "spotlight" "toggle"];
+  lock_command = ["dms" "ipc" "call" "lock" "lock"];
+  power_menu_command = ["dms" "ipc" "call" "powermenu" "toggle"];
   multimedia_command = {
     audio = {
-      raise = [ "dms" "ipc" "call" "audio" "increment" "3" ];
-      lower = [ "dms" "ipc" "call" "audio" "decrement" "3" ];
-      mute = [ "dms" "ipc" "call" "audio" "mute" ];
+      raise = ["dms" "ipc" "call" "audio" "increment" "3"];
+      lower = ["dms" "ipc" "call" "audio" "decrement" "3"];
+      mute = ["dms" "ipc" "call" "audio" "mute"];
     };
     brightness = {
-      raise = [ "dms" "ipc" "call" "brightness" "increment" "5" "backlight:intel_backlight" ];
-      lower = [ "dms" "ipc" "call" "brightness" "decrement" "5" "backlight:intel_backlight" ];
+      raise = ["dms" "ipc" "call" "brightness" "increment" "5" "backlight:intel_backlight"];
+      lower = ["dms" "ipc" "call" "brightness" "decrement" "5" "backlight:intel_backlight"];
     };
   };
-  
   # Noctalia Shell Commands
   # launcher_command = [ "noctalia-shell" "ipc" "call" "launcher" "toggle" ];
   # lock_command = [ "noctalia-shell" "ipc" "call" "lockScreen" "lock" ];
@@ -34,8 +33,7 @@
   #     lower = [ "noctalia-shell" "ipc" "call" "brightness" "decrease" ];
   #   };
   # };
-in  
-{
+in {
   imports = [];
   # Enable DankMaterialShell
   programs.dank-material-shell = {
@@ -46,17 +44,15 @@ in
       dynamicTheming = true;
     };
     niri = {
-      enableKeybinds = false;   # Automatic keybinding configuration
-      enableSpawn = true;      # Auto-start DMS with niri
+      enableKeybinds = false; # Automatic keybinding configuration
+      enableSpawn = true; # Auto-start DMS with niri
     };
   };
 
   ## Niri Settings
   programs.niri.settings.spawn-at-startup = [
     {
-      command = [
-        "noctalia-shell"
-      ];
+      command = [];
     }
   ];
   programs.niri.settings.prefer-no-csd = true;
@@ -96,17 +92,17 @@ in
     background-color = "transparent";
     always-center-single-column = true;
     center-focused-column = "never";
-    default-column-width = { proportion = 1. / 2.; };
+    default-column-width = {proportion = 1. / 2.;};
     preset-column-widths = [
-      { proportion = 1. / 3.; }
-      { proportion = 1. / 2.; }
-      { proportion = 2. / 3.; }
+      {proportion = 1. / 3.;}
+      {proportion = 1. / 2.;}
+      {proportion = 2. / 3.;}
     ];
     preset-window-heights = [
-      { proportion = 1. / 3.; }
-      { proportion = 1. / 2.; }
-      { proportion = 2. / 3.; }
-      { proportion = 1. / 1.; }
+      {proportion = 1. / 3.;}
+      {proportion = 1. / 2.;}
+      {proportion = 2. / 3.;}
+      {proportion = 1. / 1.;}
     ];
     # Focus ring and border colors are now managed by Stylix
     # Uncomment below to override Stylix colors with custom values
@@ -185,7 +181,7 @@ in
     "Mod+Tab".repeat = false;
     "Mod+L".action.spawn = lock_command;
     "Mod+L".hotkey-overlay.title = "Lock session";
-    "Mod+Shift+S".action.spawn = [ "~/.config/scripts/screenshot.sh" ];
+    "Mod+Shift+S".action.spawn = ["~/.config/scripts/screenshot.sh"];
     "Mod+Shift+S".hotkey-overlay.title = "Screenshot: screen region";
     # Multimedia using DMS IPC calls
     "XF86AudioRaiseVolume".action.spawn = multimedia_command.audio.raise;
@@ -193,7 +189,6 @@ in
     "XF86AudioMute".action.spawn = multimedia_command.audio.mute;
     "XF86MonBrightnessUp".action.spawn = multimedia_command.brightness.raise;
     "XF86MonBrightnessDown".action.spawn = multimedia_command.brightness.lower;
-
   };
   # Environment
   programs.niri.settings.environment = {
@@ -213,5 +208,4 @@ in
     networkmanagerapplet
     capitaine-cursors
   ];
-  
 }
