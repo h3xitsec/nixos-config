@@ -29,19 +29,19 @@
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
     dgop = {
       url = "github:AvengeMedia/dgop";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
     dankMaterialShell = {
       url = "github:AvengeMedia/DankMaterialShell";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.dgop.follows = "dgop";
     };
-    
-    alejandra.url = "github:kamadorueda/alejandra/3.0.0";
+
+    alejandra.url = "github:kamadorueda/alejandra";
     alejandra.inputs.nixpkgs.follows = "nixpkgs";
 
     nix-index.url = "github:Mic92/nix-index-database";
@@ -75,11 +75,10 @@
     dgop,
     dankMaterialShell,
     ...
-  }:
-  let
-    darwinSystems = [ "aarch64-darwin" "x86_64-darwin" ];
+  }: let
+    darwinSystems = ["aarch64-darwin" "x86_64-darwin"];
     # Import our library functions
-    lib = import ./lib { inherit inputs; };
+    lib = import ./lib {inherit inputs;};
   in {
     formatter = {
       x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
@@ -103,8 +102,7 @@
           ./hosts/h3xlptp/users.nix
 
           ./modules/nixos/hardware/nvidia.nix
-          
-          
+
           ./modules/nixos/de/niri.nix
           ./modules/nixos/de/stylix.nix
 
@@ -112,7 +110,7 @@
           ./modules/nixos/apps/docker.nix
           ./modules/nixos/apps/libvirtd-virtmanager.nix
           ./modules/nixos/apps/obsidian.nix
-          
+
           # Alejandra formatter
           {environment.systemPackages = [alejandra.defaultPackage."x86_64-linux"];}
 
@@ -129,7 +127,7 @@
                 inputs.dankMaterialShell.homeModules.dank-material-shell
                 inputs.dankMaterialShell.homeModules.niri
                 inputs.nixcord.homeModules.nixcord
-                
+
                 ./hosts/h3xlptp/home.nix
 
                 ./modules/home-manager/de/niri.nix
@@ -159,7 +157,7 @@
         ];
       };
     };
-    
+
     # Macbook
     darwinConfigurations."h3xmac" = lib.builders.darwin {
       hostname = "h3xmac";
