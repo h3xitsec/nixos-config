@@ -1,5 +1,4 @@
-{ pkgs, ... }: 
-let
+{pkgs, ...}: let
   pname = "headlamp";
   version = "0.39.0";
 
@@ -9,8 +8,7 @@ let
   };
 
   appimageContents = pkgs.appimageTools.extract {inherit pname version src;};
-in
-let 
+in let
   headlampApp = pkgs.appimageTools.wrapType2 {
     inherit pname version src;
     pkgs = pkgs;
@@ -27,19 +25,20 @@ let
     extraBwrapArgs = [
       "--bind-try /etc/nixos/ /etc/nixos/"
     ];
-    
+
     dieWithParent = false;
 
-    extraPkgs = pkgs: with pkgs; [
-      unzip
-      autoPatchelfHook
-      asar
-      # override doesn't preserve splicing https://github.com/NixOS/nixpkgs/issues/132651
-      (buildPackages.wrapGAppsHook3.override {inherit (buildPackages) makeWrapper;})
-    ];
-  }; 
-  in {
-    home.packages = with pkgs; [
-      headlampApp
-    ];
-  }
+    extraPkgs = pkgs:
+      with pkgs; [
+        unzip
+        autoPatchelfHook
+        asar
+        # override doesn't preserve splicing https://github.com/NixOS/nixpkgs/issues/132651
+        (buildPackages.wrapGAppsHook3.override {inherit (buildPackages) makeWrapper;})
+      ];
+  };
+in {
+  home.packages = with pkgs; [
+    headlampApp
+  ];
+}

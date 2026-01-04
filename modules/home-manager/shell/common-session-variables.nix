@@ -1,6 +1,5 @@
 # Shared session variables for home manager
-{ config, ... }:
-{
+{config, ...}: {
   # Common session variables used across systems
   home.sessionVariables = {
     NIXPKGS_ALLOW_UNFREE = "1";
@@ -15,4 +14,3 @@
     "$HOME/.pdtm/go/bin"
   ];
 }
-

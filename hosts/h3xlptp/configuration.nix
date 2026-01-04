@@ -1,6 +1,4 @@
-{
-  ...
-}: {
+{...}: {
   imports = [
     ./modules/environment.nix
     ./modules/programs.nix
@@ -9,10 +7,10 @@
     ./modules/boot.nix
     ./modules/networking.nix
   ];
-  
+
   # State version
   system.stateVersion = "25.11";
-  
+
   # Locale settings
   time.timeZone = "America/Montreal";
   i18n.defaultLocale = "en_CA.UTF-8";

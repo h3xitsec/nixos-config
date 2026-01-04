@@ -1,6 +1,9 @@
 # Configuration validation and assertions
-{ lib, config, ... }:
 {
+  lib,
+  config,
+  ...
+}: {
   # Validate that essential nix settings are properly configured
   assertions = [
     {
@@ -22,9 +25,11 @@
   ];
 
   # Warnings for suboptimal configurations
-  warnings = lib.optionals (config.nix.settings.cores == 0) [
-    "Using all CPU cores for Nix builds may impact system responsiveness"
-  ] ++ lib.optionals (config.nix.gc.automatic == false) [
-    "Automatic garbage collection is disabled - consider enabling for disk space management"
-  ];
+  warnings =
+    lib.optionals (config.nix.settings.cores == 0) [
+      "Using all CPU cores for Nix builds may impact system responsiveness"
+    ]
+    ++ lib.optionals (config.nix.gc.automatic == false) [
+      "Automatic garbage collection is disabled - consider enabling for disk space management"
+    ];
 }

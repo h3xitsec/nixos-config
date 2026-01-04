@@ -1,26 +1,26 @@
 {pkgs, ...}: {
   # Stylix now handles GTK, Qt, cursor, and color themes automatically
   # This file contains only settings that Stylix doesn't manage
-  
+
   # Stylix targets - enable/disable theming for specific applications
   # See: https://stylix.danth.me/options/hm.html for all available targets
   stylix.targets = {
     nixvim.enable = true;
-    kitty.enable = true;       # Terminal
-    nixcord.enable = true;     # Nixcord
+    kitty.enable = true; # Terminal
+    nixcord.enable = true; # Nixcord
     nixcord.fonts.enable = true;
     firefox = {
       enable = true;
-      profileNames = [ "h3xit" ];
+      profileNames = ["h3xit"];
       colorTheme.enable = true;
     };
-    vscode.enable = true;      # VSCode
-    gtk.enable = true;         # Already enabled by default
+    vscode.enable = true; # VSCode
+    gtk.enable = true; # Already enabled by default
     obsidian = {
       enable = true;
-      vaultNames = [ "obsidian" ];
+      vaultNames = ["obsidian"];
     };
-    gnome.enable = true;        # Gnome
+    gnome.enable = true; # Gnome
     noctalia-shell.enable = true;
     # niri.enable = true;        # Automatically imported by niri-flake
   };

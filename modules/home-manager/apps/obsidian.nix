@@ -6,7 +6,6 @@
   username,
   ...
 }: {
-
   programs.obsidian = {
     enable = true;
 

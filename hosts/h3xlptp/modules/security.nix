@@ -1,6 +1,4 @@
-{
-  ...
-}: {
+{...}: {
   security.rtkit.enable = true;
 
   # Polkit
@@ -14,5 +12,5 @@
   security.allowSimultaneousMultithreading = true;
 
   # AppArmor (disabled)
-  security.apparmor.enable = false;  
+  security.apparmor.enable = false;
 }

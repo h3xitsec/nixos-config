@@ -6,7 +6,7 @@
     code-cursor
     github-desktop
     claude-code
-    
+
     # Tools
     libreoffice-qt
     wireshark

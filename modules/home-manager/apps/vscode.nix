@@ -12,7 +12,9 @@
       "vscode-insiders" = "Code - Insiders";
       "vscodium" = "VSCodium";
     }
-    .${vscodePname};
+    .${
+      vscodePname
+    };
   userDir = "${config.xdg.configHome}/${configDir}/User";
   configFilePath = "${userDir}/settings.json";
   tasksFilePath = "${userDir}/tasks.json";
@@ -72,5 +74,4 @@ in {
       }
     ];
   };
-
 }

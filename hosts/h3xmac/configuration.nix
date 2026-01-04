@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   system.primaryUser = "h3x";
   system.defaults = {
     loginwindow = {
@@ -20,12 +19,12 @@
       NSAutomaticWindowAnimationsEnabled = false;
     };
   };
-  environment.systemPackages  = with pkgs; [
+  environment.systemPackages = with pkgs; [
     vim
     #discord
     iterm2
   ];
-  
+
   programs.zsh.enable = true;
 
   # Used for backwards compatibility, please read the changelog before changing.

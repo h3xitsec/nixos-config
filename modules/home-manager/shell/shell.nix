@@ -3,7 +3,6 @@
   pkgs,
   ...
 }: {
-  
   # Modern CLI tools
   home.packages = with pkgs; [
     bat
@@ -23,7 +22,6 @@
       nix-direnv.enable = true;
     };
 
-
     # Bash configuration
     bash = {
       enable = true;
@@ -31,6 +29,5 @@
         SHELL=${pkgs.bash}/bin/bash
       '';
     };
-
   };
 }

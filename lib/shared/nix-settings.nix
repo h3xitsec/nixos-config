@@ -1,6 +1,5 @@
 # Shared nix configuration settings for both NixOS and Darwin systems
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   nix = {
     # Build optimization - use all available cores
     settings = {
@@ -31,7 +30,7 @@
 
       # Enable experimental features
       experimental-features = ["nix-command" "flakes"];
-      
+
       # Disable dirty tree warnings
       warn-dirty = false;
 
@@ -43,15 +42,22 @@
     package = pkgs.nixVersions.stable;
 
     # Garbage collection configuration - more aggressive for space savings
-    gc = {
-      automatic = true;
-      # More aggressive GC: delete older than 14 days and free up to 10GB
-      options = "--delete-older-than 14d --max-freed $((10 * 1024 * 1024 * 1024))";
-    } // pkgs.lib.optionalAttrs pkgs.stdenv.isDarwin {
-      interval = { Weekday = 0; Hour = 0; Minute = 0; };
-    } // pkgs.lib.optionalAttrs pkgs.stdenv.isLinux {
-      dates = "weekly";
-    };
+    gc =
+      {
+        automatic = true;
+        # More aggressive GC: delete older than 14 days and free up to 10GB
+        options = "--delete-older-than 14d --max-freed $((10 * 1024 * 1024 * 1024))";
+      }
+      // pkgs.lib.optionalAttrs pkgs.stdenv.isDarwin {
+        interval = {
+          Weekday = 0;
+          Hour = 0;
+          Minute = 0;
+        };
+      }
+      // pkgs.lib.optionalAttrs pkgs.stdenv.isLinux {
+        dates = "weekly";
+      };
     optimise.automatic = true;
   };
 

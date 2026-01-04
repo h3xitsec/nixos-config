@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   system.defaults.dock = {
     autohide = false;
     orientation = "bottom";

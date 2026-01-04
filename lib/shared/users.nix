@@ -1,56 +1,70 @@
 # Shared user management patterns and templates
 # This file exports mkUser as a function that can be imported
-{ pkgs, lib }:
-let
+{
+  pkgs,
+  lib,
+}: let
   # Helper function to create a user configuration
   mkUser = {
     username ? "h3x",
-    description ? "h3x", 
+    description ? "h3x",
     uid ? null,
     extraGroups ? [],
     isNixOS ? true,
     ...
-  }: 
-  let
+  }: let
     # Base groups that should be available on most systems
-    baseGroups = if isNixOS then [
-      "wheel"
-      "networkmanager"
-    ] else [];
-    
+    baseGroups =
+      if isNixOS
+      then [
+        "wheel"
+        "networkmanager"
+      ]
+      else [];
+
     # Additional groups for development and system access
-    devGroups = if isNixOS then [
-      "video"
-      "input"
-      "plugdev"
-    ] else [];
-    
+    devGroups =
+      if isNixOS
+      then [
+        "video"
+        "input"
+        "plugdev"
+      ]
+      else [];
+
     allGroups = baseGroups ++ devGroups ++ extraGroups;
-    
+
     # Build user config conditionally
-    userAttrs = 
-      if isNixOS then
+    userAttrs =
+      if isNixOS
+      then
         {
           inherit description;
           createHome = true;
           extraGroups = allGroups;
           isNormalUser = true;
           group = username;
-        } // (if uid != null then { inherit uid; } else {})
-      else
-        {
-          inherit description;
-          home = "/Users/${username}";
-        };
-    
+        }
+        // (
+          if uid != null
+          then {inherit uid;}
+          else {}
+        )
+      else {
+        inherit description;
+        home = "/Users/${username}";
+      };
+
     # Build groups conditionally
-    groupsAttrs = if isNixOS then {
-      ${username} = {};
-    } else {};
-  in
-  {
+    groupsAttrs =
+      if isNixOS
+      then {
+        ${username} = {};
+      }
+      else {};
+  in {
     users.users.${username} = userAttrs;
     users.groups = groupsAttrs;
   };
 in
-mkUser
+  mkUser

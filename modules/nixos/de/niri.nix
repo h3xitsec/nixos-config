@@ -28,10 +28,10 @@
     TTYVHangup = true;
     TTYVTDisallocate = true;
   };
-  
+
   # Disable niri-flake's polkit service
   systemd.user.services.niri-flake-polkit.enable = false;
-  
+
   # Use GNOME's polkit agent instead
   systemd.user.services.polkit-gnome-authentication-agent-1 = {
     description = "PolicyKit Authentication Agent (GNOME)";

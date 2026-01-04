@@ -6,7 +6,7 @@
   # Smart card support
   services.pcscd.enable = true;
 
-    # DNS-over-TLS configuration
+  # DNS-over-TLS configuration
   services.resolved = {
     enable = true;
     extraConfig = ''
@@ -24,7 +24,7 @@
 
   ## Audio Services
   services.pulseaudio.enable = lib.mkForce false;
-    services.pipewire = {
+  services.pipewire = {
     enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
@@ -69,11 +69,11 @@
     settings = {
       # ----- CPU (main culprit for "slow" feeling) -----
       CPU_SCALING_GOVERNOR_ON_AC = "performance";
-      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";  # Keep powersave - HWP does the real work
+      CPU_SCALING_GOVERNOR_ON_BAT = "powersave"; # Keep powersave - HWP does the real work
 
       # EPP: This is the key setting for Alder Lake responsiveness
       CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
-      CPU_ENERGY_PERF_POLICY_ON_BAT = "balance_performance";  # Was balance_power, now snappier
+      CPU_ENERGY_PERF_POLICY_ON_BAT = "balance_performance"; # Was balance_power, now snappier
 
       # Turbo boost - keep it, EPP will limit when idle anyway
       CPU_BOOST_ON_AC = 1;
@@ -81,23 +81,23 @@
 
       # HWP dynamic boost - allow burst performance on battery
       CPU_HWP_DYN_BOOST_ON_AC = 1;
-      CPU_HWP_DYN_BOOST_ON_BAT = 1;  # Changed: allows short performance bursts
+      CPU_HWP_DYN_BOOST_ON_BAT = 1; # Changed: allows short performance bursts
 
       # ----- Platform Profile -----
       PLATFORM_PROFILE_ON_AC = "performance";
-      PLATFORM_PROFILE_ON_BAT = "balanced";  # Keep balanced (not low-power)
+      PLATFORM_PROFILE_ON_BAT = "balanced"; # Keep balanced (not low-power)
 
       # ----- Disk (aggressive APM causes micro-stutters) -----
       DISK_DEVICES = "nvme0n1";
       DISK_APM_LEVEL_ON_AC = "254";
-      DISK_APM_LEVEL_ON_BAT = "192";  # Was 128, less aggressive now
+      DISK_APM_LEVEL_ON_BAT = "192"; # Was 128, less aggressive now
 
       AHCI_RUNTIME_PM_ON_AC = "on";
       AHCI_RUNTIME_PM_ON_BAT = "auto";
 
       # ----- PCIe ASPM (latency vs power tradeoff) -----
       PCIE_ASPM_ON_AC = "performance";
-      PCIE_ASPM_ON_BAT = "default";  # Was powersupersave, now let kernel decide
+      PCIE_ASPM_ON_BAT = "default"; # Was powersupersave, now let kernel decide
 
       # ----- Runtime PM -----
       RUNTIME_PM_ON_AC = "on";
@@ -105,7 +105,7 @@
 
       # ----- WiFi (keep responsive) -----
       WIFI_PWR_ON_AC = "off";
-      WIFI_PWR_ON_BAT = "off";  # Changed: WiFi power save adds latency
+      WIFI_PWR_ON_BAT = "off"; # Changed: WiFi power save adds latency
 
       # ----- USB -----
       USB_AUTOSUSPEND = 1;
@@ -114,7 +114,7 @@
 
       # ----- Audio -----
       SOUND_POWER_SAVE_ON_AC = 0;
-      SOUND_POWER_SAVE_ON_BAT = 0;  # Changed: avoids audio latency/pops
+      SOUND_POWER_SAVE_ON_BAT = 0; # Changed: avoids audio latency/pops
 
       # ----- Battery thresholds -----
       START_CHARGE_THRESH_BAT0 = 75;
@@ -132,7 +132,7 @@
 
   # Fingerprint reader
   services.fprintd.enable = true;
-  
+
   # Keyring
   services.gnome.gnome-keyring.enable = true;
 
@@ -145,5 +145,4 @@
 
   # Thunderbolt
   services.hardware.bolt.enable = true;
-
 }

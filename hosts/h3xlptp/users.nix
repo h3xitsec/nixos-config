@@ -3,24 +3,22 @@
   lib,
   config,
   ...
-}: 
-let
+}: let
   # Import the shared user creation function
-  mkUser = import ../../lib/shared/users.nix { inherit pkgs lib; };
-  
+  mkUser = import ../../lib/shared/users.nix {inherit pkgs lib;};
+
   # Use shared user creation function with XPS15-specific groups
   userConfig = mkUser {
     username = "h3x";
     description = "h3x";
     uid = 1000;
     extraGroups = [
-      "docker"  # Docker support
-      "power"   # Power management
+      "docker" # Docker support
+      "power" # Power management
     ];
     isNixOS = true;
   };
-in
-{
+in {
   # Define option to enable sudo NOPASSWD (default: false for security)
   options.security.sudoNoPasswd = lib.mkOption {
     type = lib.types.bool;

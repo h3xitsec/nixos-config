@@ -1,6 +1,5 @@
 # Shared package definitions for cross-platform use
-{ pkgs, ... }:
-let
+{pkgs, ...}: let
   # Core development tools available on all systems
   core-dev = with pkgs; [
     vim
@@ -13,17 +12,19 @@ let
   ];
 
   # System utilities available on all platforms
-  system-utils = with pkgs; [
-    btop
-    # Platform-specific utilities can be conditionally included
-  ] ++ pkgs.lib.optionals pkgs.stdenv.isLinux [
-    iotop
-    powertop
-    lm_sensors
-    acpi
-    usbutils
-    pciutils
-  ];
+  system-utils = with pkgs;
+    [
+      btop
+      # Platform-specific utilities can be conditionally included
+    ]
+    ++ pkgs.lib.optionals pkgs.stdenv.isLinux [
+      iotop
+      powertop
+      lm_sensors
+      acpi
+      usbutils
+      pciutils
+    ];
 
   # Networking tools
   networking = with pkgs; [
@@ -45,8 +46,7 @@ let
     tmux
     zsh
   ];
-in
-{
+in {
   # Individual package categories (for selective inclusion)
   inherit core-dev system-utils networking development shell;
 

@@ -1,6 +1,5 @@
 # Library entry point for shared modules and functions
-{ inputs }:
-let 
+{inputs}: let
   lib = inputs.nixpkgs.lib;
 in {
   # Import all shared modules
@@ -12,7 +11,7 @@ in {
 
   # Import builder functions
   builders = {
-    nixos = import ./builders/nixos.nix { inherit inputs lib; };
-    darwin = import ./builders/darwin.nix { inherit inputs lib; };
+    nixos = import ./builders/nixos.nix {inherit inputs lib;};
+    darwin = import ./builders/darwin.nix {inherit inputs lib;};
   };
 }

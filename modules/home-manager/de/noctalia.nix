@@ -1,5 +1,8 @@
-{ pkgs, inputs, ... }:
 {
+  pkgs,
+  inputs,
+  ...
+}: {
   # Wallpaper
   home.file.".cache/noctalia/wallpapers.json" = {
     text = builtins.toJSON {

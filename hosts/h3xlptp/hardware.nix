@@ -24,10 +24,10 @@
       ];
       enableRedistributableFirmware = true;
     };
-    
+
     # Root filesystem (BTRFS with subvolumes)
     fileSystems."/" = {
-      device = "/dev/disk/by-uuid/98d96009-0c5b-49bd-9047-c444ccff6c82";  # UPDATE THIS UUID
+      device = "/dev/disk/by-uuid/98d96009-0c5b-49bd-9047-c444ccff6c82"; # UPDATE THIS UUID
       fsType = "btrfs";
       # BTRFS options:
       # - subvol=@: root subvolume
@@ -42,7 +42,7 @@
 
     # Home filesystem (separate BTRFS subvolume)
     fileSystems."/home" = {
-      device = "/dev/disk/by-uuid/98d96009-0c5b-49bd-9047-c444ccff6c82";  # Same device, different subvolume
+      device = "/dev/disk/by-uuid/98d96009-0c5b-49bd-9047-c444ccff6c82"; # Same device, different subvolume
       fsType = "btrfs";
       # Similar options to root, but longer commit interval for user data
       options = ["subvol=@home" "ssd" "noatime" "space_cache=v2" "compress=zstd:3" "discard=async" "commit=128"];
@@ -50,7 +50,7 @@
 
     # Boot partition (EFI system partition)
     fileSystems."/boot" = {
-      device = "/dev/disk/by-uuid/D1E4-3175";  # UPDATE THIS UUID
+      device = "/dev/disk/by-uuid/D1E4-3175"; # UPDATE THIS UUID
       fsType = "vfat";
       # Standard EFI partition mount options
       options = ["fmask=0022" "dmask=0022"];
@@ -58,7 +58,7 @@
 
     # Data partition (separate drive/partition for user data)
     fileSystems."/mnt/data" = {
-      device = "/dev/disk/by-uuid/81e2a0f2-84ca-48bc-941f-d26e5ed73b5a";  # UPDATE THIS UUID
+      device = "/dev/disk/by-uuid/81e2a0f2-84ca-48bc-941f-d26e5ed73b5a"; # UPDATE THIS UUID
       fsType = "ext4";
     };
 

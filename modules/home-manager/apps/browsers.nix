@@ -19,7 +19,7 @@
           force = true;
         };
       };
-    }; 
+    };
     policies = {
       # Force-install and enable Firefox Color for Stylix theming
       Extensions.Install = [

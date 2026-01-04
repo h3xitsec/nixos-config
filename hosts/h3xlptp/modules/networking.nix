@@ -1,7 +1,4 @@
-{
-  lib,
-  ...
-}: {
+{lib, ...}: {
   networking = {
     hostName = "h3xlptp";
     useDHCP = lib.mkDefault true;
@@ -18,7 +15,7 @@
     # Firewall with nftables
     nftables.enable = true;
     firewall = {
-      enable = true;  # Explicitly enable firewall
+      enable = true; # Explicitly enable firewall
       trustedInterfaces = [
         "wlp0s20f3"
         "incusbr*"

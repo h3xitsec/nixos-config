@@ -5,20 +5,20 @@
 }: {
   stylix = {
     enable = true;
-    
+
     # Wallpaper image - colors will be generated from this
     # Change this path to use a different wallpaper
     # image = ../../home/common/files/wallpapers/2.jpeg;
-    
+
     # Use dark theme (options: "dark", "light", "either")
     polarity = "dark";
-    
+
     # OPTION: Use a predefined base16 scheme instead of wallpaper-generated colors
     # Uncomment the line below and comment out `image` above to use a specific scheme
-    # Popular schemes: "gruvbox-dark-medium", "nord", "tokyo-night-dark", 
+    # Popular schemes: "gruvbox-dark-medium", "nord", "tokyo-night-dark",
     #                  "catppuccin-mocha", "dracula", "one-dark"
     base16Scheme = "${pkgs.base16-schemes}/share/themes/dracula.yaml";
-    
+
     # OR: Keep the wallpaper but override colors with a specific scheme
     # (uncomment this while keeping `image` above for wallpaper + custom colors)
     # base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
@@ -65,4 +65,3 @@
     };
   };
 }
-

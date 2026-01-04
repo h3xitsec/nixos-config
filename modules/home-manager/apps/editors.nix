@@ -8,7 +8,6 @@
   cursorUserDir = "${cursorConfigDir}/User";
   emptyJson = "{}";
 in {
-
   # CURSOR IDE
 
   home.activation.createCursorDirs = lib.hm.dag.entryBefore ["checkLinkTargets"] ''

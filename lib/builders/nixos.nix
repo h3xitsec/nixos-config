@@ -1,26 +1,37 @@
 # NixOS system builder with shared configuration
-{ inputs, lib }:
-{ system ? "x86_64-linux", hostname, modules ? [], specialArgs ? {}, ... }:
-
+{
+  inputs,
+  lib,
+}: {
+  system ? "x86_64-linux",
+  hostname,
+  modules ? [],
+  specialArgs ? {},
+  ...
+}:
 inputs.nixpkgs.lib.nixosSystem {
   inherit system;
-  
-  specialArgs = {
-    inherit inputs;
-    inherit (inputs.self) outputs;
-  } // specialArgs;
 
-  modules = [
-    # Apply shared configuration
-    ../shared/nix-settings.nix
-    ../shared/validation.nix 
-    
-    # Default overlays
+  specialArgs =
     {
-      nixpkgs.overlays = [
-        inputs.niri.overlays.niri
-        (import ../../overlays.nix {inherit inputs;}).fixups
-      ];
+      inherit inputs;
+      inherit (inputs.self) outputs;
     }
-  ] ++ modules;
+    // specialArgs;
+
+  modules =
+    [
+      # Apply shared configuration
+      ../shared/nix-settings.nix
+      ../shared/validation.nix
+
+      # Default overlays
+      {
+        nixpkgs.overlays = [
+          inputs.niri.overlays.niri
+          (import ../../overlays.nix {inherit inputs;}).fixups
+        ];
+      }
+    ]
+    ++ modules;
 }

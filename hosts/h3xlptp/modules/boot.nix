@@ -25,23 +25,25 @@
     };
 
     kernelModules = ["kvm-intel" "coretemp" "nct6775"];
-    
-    kernelParams = [
-      "acpi_osi=linux"
-      "intel_pstate=active"
-      "acpi_rev_override=1"
-      "mem_sleep_default=s2idle"
-      "pcie_aspm=off"
-      "quiet"
-      "splash"
-      "nowatchdog"
-    ] ++ lib.optionals config.hardware.disableMitigations [
-      "mitigations=off"  # WARNING: Disables CPU security mitigations - performance only
-    ];
 
-      extraModulePackages = with config.boot.kernelPackages; [
-        #rtl8188eus-aircrack
+    kernelParams =
+      [
+        "acpi_osi=linux"
+        "intel_pstate=active"
+        "acpi_rev_override=1"
+        "mem_sleep_default=s2idle"
+        "pcie_aspm=off"
+        "quiet"
+        "splash"
+        "nowatchdog"
+      ]
+      ++ lib.optionals config.hardware.disableMitigations [
+        "mitigations=off" # WARNING: Disables CPU security mitigations - performance only
       ];
+
+    extraModulePackages = with config.boot.kernelPackages; [
+      #rtl8188eus-aircrack
+    ];
     extraModprobeConfig = ''
       blacklist nouveau
       blacklist spd5118
@@ -50,8 +52,7 @@
       options iwlmvm power_scheme=3
     '';
 
-    blacklistedKernelModules = ["spd5118" "nouveau" ];
+    blacklistedKernelModules = ["spd5118" "nouveau"];
     kernelPackages = pkgs.linuxPackages_latest;
-
   };
 }

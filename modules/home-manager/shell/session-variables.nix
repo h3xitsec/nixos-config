@@ -1,6 +1,5 @@
 # XPS15-specific session variables (Wayland/NVIDIA)
-{ config, ... }:
-{
+{config, ...}: {
   # Session variables for Wayland/NVIDIA on XPS15
   home.sessionVariables = {
     QT_QPA_PLATFORM = "wayland;xcb";
@@ -12,4 +11,3 @@
     WLR_DRM_NO_ATOMIC = "1";
   };
 }
-
