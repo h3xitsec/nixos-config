@@ -130,7 +130,6 @@
     HandleLidSwitch = "suspend";
   };
 
-  ## Security Settings
   # Fingerprint reader
   services.fprintd.enable = true;
   

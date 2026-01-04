@@ -39,7 +39,9 @@
       "mitigations=off"  # WARNING: Disables CPU security mitigations - performance only
     ];
 
-    extraModulePackages = [];
+      extraModulePackages = with config.boot.kernelPackages; [
+        #rtl8188eus-aircrack
+      ];
     extraModprobeConfig = ''
       blacklist nouveau
       blacklist spd5118

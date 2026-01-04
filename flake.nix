@@ -94,9 +94,10 @@
         system = "x86_64-linux";
         modules = [
           # Dell XPS 15-9520 hardware support
-          nixos-hardware.nixosModules.dell-xps-15-9520  
+          nixos-hardware.nixosModules.dell-xps-15-9520
+          inputs.stylix.nixosModules.stylix
           ./lib/shared/nix-settings.nix
-          # System configuration
+
           ./hosts/h3xlptp/configuration.nix
           ./hosts/h3xlptp/hardware.nix
           ./hosts/h3xlptp/users.nix
@@ -111,11 +112,7 @@
           ./modules/nixos/apps/docker.nix
           ./modules/nixos/apps/libvirtd-virtmanager.nix
           ./modules/nixos/apps/obsidian.nix
-
-
-          # Stylix theming
-          inputs.stylix.nixosModules.stylix
-
+          
           # Alejandra formatter
           {environment.systemPackages = [alejandra.defaultPackage."x86_64-linux"];}
 
@@ -143,7 +140,7 @@
                 ./modules/home-manager/shell/common-session-variables.nix
                 ./modules/home-manager/shell/session-variables.nix
                 ./modules/home-manager/shell/tmux.nix
-                ./modules/home-manager/shell/fhs-env.nix
+                ./modules/home-manager/shell/pentest-shell.nix
                 ./modules/home-manager/shell/git.nix
                 ./modules/home-manager/shell/nixvim.nix
                 ./modules/home-manager/shell/zsh.nix
