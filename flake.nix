@@ -76,6 +76,7 @@
     dankMaterialShell,
     ...
   }: let
+    username = "h3x";
     darwinSystems = ["aarch64-darwin" "x86_64-darwin"];
     # Import our library functions
     lib = import ./lib {inherit inputs;};
@@ -91,6 +92,7 @@
       h3xlptp = lib.builders.nixos {
         hostname = "h3xlptp";
         system = "x86_64-linux";
+        specialArgs = {inherit username;};
         modules = [
           # Dell XPS 15-9520 hardware support
           nixos-hardware.nixosModules.dell-xps-15-9520
@@ -121,6 +123,7 @@
               backupFileExtension = "bak";
               useGlobalPkgs = true;
               useUserPackages = true;
+              extraSpecialArgs = {inherit username;};
               users.h3x.imports = [
                 inputs.nixvim.homeModules.nixvim
                 inputs.nix-index.homeModules.nix-index
@@ -162,6 +165,7 @@
     darwinConfigurations."h3xmac" = lib.builders.darwin {
       hostname = "h3xmac";
       system = "aarch64-darwin";
+      specialArgs = {inherit username;};
       modules = [
         ./hosts/h3xmac/configuration.nix
         ./hosts/h3xmac/dock.nix
@@ -201,6 +205,7 @@
         {
           home-manager = {
             useGlobalPkgs = true;
+            extraSpecialArgs = {inherit username;};
             users.h3x.imports = [
               inputs.nixvim.homeModules.nixvim
               inputs.nix-index.homeModules.nix-index

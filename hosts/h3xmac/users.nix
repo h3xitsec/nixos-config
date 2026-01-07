@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  username,
   ...
 }: let
   # Import the shared user creation function
@@ -8,8 +9,8 @@
 
   # Use shared user creation function for Darwin
   userConfig = mkUser {
-    username = "h3x";
-    description = "h3x";
+    username = username;
+    description = username;
     isNixOS = false;
   };
 in

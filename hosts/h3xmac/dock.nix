@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  username,
+  ...
+}: {
   system.defaults.dock = {
     autohide = false;
     orientation = "bottom";
@@ -10,15 +14,15 @@
       "/System/Applications/Mail.app"
       "/System/Applications/Facetime.app"
       "/System/Applications/Messages.app"
-      "/Users/h3x/Applications/Home Manager Apps/Discord.app"
+      "/Users/${username}/Applications/Home Manager Apps/Discord.app"
       "/System/Applications/Music.app"
       "/System/Applications/TV.app"
       "/Applications/Nix Apps/iTerm2.app"
-      "/Users/h3x/Applications/Home Manager Apps/Visual Studio Code.app"
+      "/Users/${username}/Applications/Home Manager Apps/Visual Studio Code.app"
       "/Applications/BambuStudio.app"
       "/Applications/Caido.app"
       "/Applications/1Password.app"
-      "/Users/h3x/Applications/Autodesk Fusion.app"
+      "/Users/${username}/Applications/Autodesk Fusion.app"
     ];
   };
 }

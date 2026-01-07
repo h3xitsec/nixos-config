@@ -1,5 +1,9 @@
-{pkgs, ...}: {
-  system.primaryUser = "h3x";
+{
+  pkgs,
+  username,
+  ...
+}: {
+  system.primaryUser = username;
   system.defaults = {
     loginwindow = {
       GuestEnabled = false;

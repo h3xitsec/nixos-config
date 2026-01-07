@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  username,
   ...
 }: {
   nixpkgs.config.allowUnfreePredicate = pkg:
@@ -13,6 +14,6 @@
   programs._1password.enable = true;
   programs._1password-gui = {
     enable = true;
-    polkitPolicyOwners = ["h3x"];
+    polkitPolicyOwners = [username];
   };
 }

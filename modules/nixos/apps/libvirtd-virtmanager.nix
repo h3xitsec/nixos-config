@@ -1,8 +1,12 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  username,
+  ...
+}: {
   virtualisation.libvirtd.enable = true;
   virtualisation.libvirtd.qemu.swtpm.enable = true;
   programs.virt-manager.enable = true;
-  users.extraGroups.libvirt.members = ["h3x"];
+  users.extraGroups.libvirt.members = [username];
   environment.systemPackages = with pkgs; [
     virtiofsd
     virglrenderer

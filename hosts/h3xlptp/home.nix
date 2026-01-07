@@ -3,6 +3,7 @@
   lib,
   config,
   inputs,
+  username,
   ...
 }: {
   # Copy custom scripts to profile
@@ -45,7 +46,7 @@
 
   home = {
     stateVersion = "25.11";
-    username = "h3x";
+    username = username;
 
     # Symlinks to /mnt/data
     file."data".source = config.lib.file.mkOutOfStoreSymlink "/mnt/data";

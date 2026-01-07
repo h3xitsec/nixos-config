@@ -2,11 +2,12 @@
   pkgs,
   inputs,
   config,
+  username,
   ...
 }: {
   home = {
     stateVersion = "25.11";
-    username = "h3x";
+    username = username;
 
     # Modern CLI tools (shared with XPS15)
     packages = with pkgs; [

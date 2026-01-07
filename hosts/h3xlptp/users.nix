@@ -2,15 +2,16 @@
   pkgs,
   lib,
   config,
+  username,
   ...
 }: let
   # Import the shared user creation function
-  mkUser = import ../../lib/shared/users.nix {inherit pkgs lib;};
+  mkUser = import ../../lib/shared/users.nix {inherit pkgs lib username;};
 
   # Use shared user creation function with XPS15-specific groups
   userConfig = mkUser {
-    username = "h3x";
-    description = "h3x";
+    username = username;
+    description = username;
     uid = 1000;
     extraGroups = [
       "docker" # Docker support

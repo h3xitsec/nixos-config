@@ -3,11 +3,12 @@
 {
   pkgs,
   lib,
+  username,
 }: let
   # Helper function to create a user configuration
   mkUser = {
-    username ? "h3x",
-    description ? "h3x",
+    username ? username,
+    description ? username,
     uid ? null,
     extraGroups ? [],
     isNixOS ? true,
