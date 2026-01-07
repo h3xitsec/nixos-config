@@ -3,7 +3,6 @@
   lib,
   config,
   inputs,
-  username,
   ...
 }: {
   # Copy custom scripts to profile
