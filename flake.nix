@@ -22,9 +22,6 @@
 
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
 
-    # Flake utilities for better system handling
-    flake-utils-plus.url = "github:gytis-ivaskevicius/flake-utils-plus";
-
     niri = {
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -71,7 +68,6 @@
     nixvim,
     home-manager,
     alejandra,
-    flake-utils-plus,
     dgop,
     dankMaterialShell,
     ...
@@ -153,6 +149,7 @@
                 ./modules/home-manager/apps/terminal.nix
                 ./modules/home-manager/apps/obsidian.nix
                 ./modules/home-manager/apps/vscode.nix
+                ./modules/home-manager/apps/cursor.nix
                 ./modules/home-manager/apps/nixcord.nix
               ];
             };

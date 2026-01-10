@@ -17,7 +17,7 @@
     # Uncomment the line below and comment out `image` above to use a specific scheme
     # Popular schemes: "gruvbox-dark-medium", "nord", "tokyo-night-dark",
     #                  "catppuccin-mocha", "dracula", "one-dark"
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/dracula.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
 
     # OR: Keep the wallpaper but override colors with a specific scheme
     # (uncomment this while keeping `image` above for wallpaper + custom colors)
