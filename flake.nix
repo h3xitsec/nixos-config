@@ -131,6 +131,7 @@
 
                 ./modules/home-manager/de/niri.nix
                 ./modules/home-manager/de/theme.nix
+                ./modules/home-manager/de/dankmaterialshell.nix
                 ./modules/home-manager/de/wallpapers.nix
 
                 ./modules/home-manager/shell/shell.nix

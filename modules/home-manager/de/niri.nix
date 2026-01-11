@@ -35,19 +35,6 @@
   # };
 in {
   imports = [];
-  # Enable DankMaterialShell
-  programs.dank-material-shell = {
-    enable = true;
-    enableDynamicTheming = true;
-    #default.settings = {
-    #  theme = "dark";
-    #   dynamicTheming = true;
-    #};
-    niri = {
-      enableKeybinds = false; # Automatic keybinding configuration
-      enableSpawn = true; # Auto-start DMS with niri
-    };
-  };
 
   ## Niri Settings
   programs.niri.settings.spawn-at-startup = [
