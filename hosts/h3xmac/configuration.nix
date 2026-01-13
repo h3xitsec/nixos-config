@@ -39,5 +39,5 @@
   nixpkgs.hostPlatform = "aarch64-darwin";
 
   # Sudo fingerprint
-  security.pam.services.sudo_local.touchIdAuth = true;
+  security.pam.services.sudo_local.touchIdAuth = true;  
 }

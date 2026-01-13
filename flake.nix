@@ -212,6 +212,7 @@
               ./modules/home-manager/apps/vscode.nix
               ./modules/home-manager/shell/git.nix
               ./modules/home-manager/shell/zsh.nix
+              ./modules/home-manager/de/aerospace.nix
               ./modules/home-manager/de/wallpapers.nix
               ./modules/home-manager/shell/common-session-variables.nix
               ./modules/home-manager/shell/nixvim.nix
