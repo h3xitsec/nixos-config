@@ -62,6 +62,12 @@
       fsType = "ext4";
     };
 
+    fileSystems."/mnt/priv" = {
+      device = "192.168.0.12:/mnt/pool01/subvol-priv";
+      fsType = "nfs";
+      options = ["x-systemd.automount" "noauto" "x-systemd.idle-timeout=600"];
+    };
+
     # Power management
     powerManagement = {
       enable = true;
