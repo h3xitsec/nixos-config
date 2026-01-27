@@ -108,6 +108,7 @@
           ./modules/nixos/apps/docker.nix
           ./modules/nixos/apps/libvirtd-virtmanager.nix
           ./modules/nixos/apps/obsidian.nix
+          ./modules/nixos/apps/steam.nix
 
           # Alejandra formatter
           {environment.systemPackages = [alejandra.defaultPackage."x86_64-linux"];}
