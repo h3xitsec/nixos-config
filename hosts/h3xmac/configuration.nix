@@ -25,7 +25,6 @@
   };
   environment.systemPackages = with pkgs; [
     vim
-    #discord
     iterm2
   ];
 
@@ -39,5 +38,8 @@
   nixpkgs.hostPlatform = "aarch64-darwin";
 
   # Sudo fingerprint
-  security.pam.services.sudo_local.touchIdAuth = true;  
+  security.pam.services.sudo_local.touchIdAuth = true;
+
+  # Tailscale
+  services.tailscale.enable = true;
 }
