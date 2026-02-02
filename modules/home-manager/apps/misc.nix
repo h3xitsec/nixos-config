@@ -16,7 +16,6 @@
     docker
     docker-compose
     protonvpn-gui
-    protonmail-bridge-gui
     thunderbird
     dbeaver-bin
   ];
