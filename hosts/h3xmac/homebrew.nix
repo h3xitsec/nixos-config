@@ -2,6 +2,8 @@
   homebrew = {
     enable = true;
     onActivation.cleanup = "uninstall";
+    onActivation.autoUpdate = true;
+    onActivation.upgrade = true;
     taps = [];
     brews = [];
     casks = [
