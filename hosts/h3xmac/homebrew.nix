@@ -15,6 +15,7 @@
       "parsec"
       "bambu-studio"
       "github"
+      "microsoft-office"
     ];
   };
 }
