@@ -109,6 +109,7 @@
           ./modules/nixos/apps/libvirtd-virtmanager.nix
           ./modules/nixos/apps/obsidian.nix
           ./modules/nixos/apps/steam.nix
+          ./modules/nixos/apps/gparted.nix
 
           # Alejandra formatter
           {environment.systemPackages = [alejandra.defaultPackage."x86_64-linux"];}

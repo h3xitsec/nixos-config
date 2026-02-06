@@ -42,7 +42,7 @@
 
     # Home filesystem (separate BTRFS subvolume)
     fileSystems."/home" = {
-      device = "/dev/disk/by-uuid/98d96009-0c5b-49bd-9047-c444ccff6c82"; # Same device, different subvolume
+      device = "/dev/disk/by-uuid/426627da-bafd-45fc-8fbb-31b17c77501c"; # Same device, different subvolume
       fsType = "btrfs";
       # Similar options to root, but longer commit interval for user data
       options = ["subvol=@home" "ssd" "noatime" "space_cache=v2" "compress=zstd:3" "discard=async" "commit=128"];
