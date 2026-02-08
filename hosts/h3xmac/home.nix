@@ -9,7 +9,6 @@
     stateVersion = "25.11";
     username = username;
 
-    # Modern CLI tools (shared with XPS15)
     packages = with pkgs; [
       bat
       eza
@@ -19,6 +18,8 @@
       fd
       httpie
       fzf
+      caido
+      code-cursor
     ];
   };
 
