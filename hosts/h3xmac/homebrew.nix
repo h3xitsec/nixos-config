@@ -15,6 +15,7 @@
       "bambu-studio"
       "github"
       "microsoft-office"
+      "obsidian"
     ];
   };
 }
