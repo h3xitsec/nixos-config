@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-
     darwin.url = "github:nix-darwin/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
     homebrew-core = {
@@ -101,6 +100,8 @@
 
           ./modules/nixos/hardware/nvidia.nix
 
+          ./modules/nixos/security/local-ca-cert.nix
+
           ./modules/nixos/de/niri.nix
           ./modules/nixos/de/stylix.nix
 
@@ -130,10 +131,12 @@
                 inputs.nixcord.homeModules.nixcord
 
                 ./hosts/h3xlptp/home.nix
+                ./modules/home-manager/mutability.nix
 
                 ./modules/home-manager/de/niri.nix
                 ./modules/home-manager/de/theme.nix
                 ./modules/home-manager/de/dankmaterialshell.nix
+                ./modules/home-manager/de/dankmaterialshell-settings.nix
                 ./modules/home-manager/de/wallpapers.nix
 
                 ./modules/home-manager/shell/shell.nix
@@ -212,6 +215,7 @@
               inputs.nix-index.homeModules.nix-index
               inputs.nixcord.homeModules.nixcord
               ./hosts/h3xmac/home.nix
+              ./modules/nixos/security/local-ca-cert.nix
               ./modules/home-manager/apps/vscode.nix
               ./modules/home-manager/shell/git.nix
               ./modules/home-manager/shell/zsh.nix

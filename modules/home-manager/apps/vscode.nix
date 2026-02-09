@@ -30,12 +30,7 @@
       cfg.profiles.default.languageSnippets)
   ];
 in {
-  imports = [
-    (import (builtins.fetchurl {
-      url = "https://gist.githubusercontent.com/h3xitsec/b5922a7c727e0bfd74c56a35b379f837/raw/03301ebc807b2fd20cd8aeaabd9b2c7847fc9132/mutability.nix";
-      sha256 = "1lfqs0ccqmqq2kikpn2wwi5gn6vryk15jscq5dm9f91h6x1yi83l";
-    }) {inherit config lib;})
-  ];
+  # Mutability module is imported in flake.nix (./modules/home-manager/mutability.nix)
 
   # VSCODE
   programs.vscode = {

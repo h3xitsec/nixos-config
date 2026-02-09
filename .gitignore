@@ -4,3 +4,9 @@ result-*
 
 # Ignore automatically generated direnv output
 .direnv
+
+# SOPS: never commit decrypted secrets or private keys
+*_dec.yaml
+*.dec.yaml
+secrets/*_dec.*
+.keys/
