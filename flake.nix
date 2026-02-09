@@ -172,6 +172,7 @@
       specialArgs = {inherit username nixpkgs;};
       modules = [
         ./hosts/h3xmac/configuration.nix
+        ./modules/nixos/security/local-ca-cert.nix
         ./hosts/h3xmac/dock.nix
         ./hosts/h3xmac/homebrew.nix
         ./hosts/h3xmac/users.nix
@@ -215,7 +216,6 @@
               inputs.nix-index.homeModules.nix-index
               inputs.nixcord.homeModules.nixcord
               ./hosts/h3xmac/home.nix
-              ./modules/nixos/security/local-ca-cert.nix
               ./modules/home-manager/apps/vscode.nix
               ./modules/home-manager/shell/git.nix
               ./modules/home-manager/shell/zsh.nix
