@@ -18,8 +18,8 @@
       fd
       httpie
       fzf
-      caido
       code-cursor
+      caffeine
     ];
   };
 

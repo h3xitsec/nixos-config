@@ -169,7 +169,7 @@
     darwinConfigurations."h3xmac" = lib.builders.darwin {
       hostname = "h3xmac";
       system = "aarch64-darwin";
-      specialArgs = {inherit username;};
+      specialArgs = {inherit username nixpkgs;};
       modules = [
         ./hosts/h3xmac/configuration.nix
         ./hosts/h3xmac/dock.nix
