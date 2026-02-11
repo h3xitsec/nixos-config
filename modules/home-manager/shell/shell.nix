@@ -13,6 +13,7 @@
     fd
     httpie
     fzf
+    yazi
   ];
 
   programs = {

@@ -13,6 +13,7 @@
       bat
       eza
       ripgrep
+      yazi
       ncdu
       duf
       fd
