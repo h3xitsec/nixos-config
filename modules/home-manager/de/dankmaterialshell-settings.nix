@@ -9,8 +9,6 @@
       matugenScheme = "scheme-rainbow";
       runUserMatugenTemplates = true;
       matugenTargetMonitor = "";
-      popupTransparency = 1;
-      dockTransparency = 1;
       widgetBackgroundColor = "sch";
       widgetColorMode = "default";
       cornerRadius = 12;
@@ -165,8 +163,6 @@
       launcherLogoBrightness = 0.5;
       launcherLogoContrast = 1;
       launcherLogoSizeOffset = 0;
-      fontFamily = "JetBrainsMono NF";
-      monoFontFamily = "JetBrainsMonoNL NF";
       fontWeight = 400;
       fontScale = 1;
       notepadUseMonospace = true;
