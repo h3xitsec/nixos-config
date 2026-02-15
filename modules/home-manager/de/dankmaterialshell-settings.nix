@@ -3,12 +3,15 @@
   programs.dank-material-shell = {
     settings = {
       theme = "stylix";
+      customThemeFile = "/home/h3x/.config/DankMaterialShell/themes/stylix.json";
       currentThemeName = "custom";
       currentThemeCategory = "custom";
       registryThemeVariants = {};
       matugenScheme = "scheme-rainbow";
       runUserMatugenTemplates = true;
       matugenTargetMonitor = "";
+      popupTransparency = 1;
+      dockTransparency = 1;
       widgetBackgroundColor = "sch";
       widgetColorMode = "default";
       cornerRadius = 12;
@@ -163,6 +166,8 @@
       launcherLogoBrightness = 0.5;
       launcherLogoContrast = 1;
       launcherLogoSizeOffset = 0;
+      fontFamily = "JetBrainsMono NF";
+      monoFontFamily = "JetBrainsMonoNL NF";
       fontWeight = 400;
       fontScale = 1;
       notepadUseMonospace = true;
@@ -315,7 +320,7 @@
           spacing = 4;
           innerPadding = 4;
           bottomGap = 0;
-          transparency = 1;
+          transparency = 0.75;
           widgetTransparency = 1;
           squareCorners = false;
           noBackground = false;

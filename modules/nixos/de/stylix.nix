@@ -5,7 +5,7 @@
 }: {
   stylix = {
     enable = true;
-
+    autoEnable = true;
     # Wallpaper image - colors will be generated from this
     # Change this path to use a different wallpaper
     # image = ../../home/common/files/wallpapers/2.jpeg;
@@ -22,7 +22,17 @@
     # OR: Keep the wallpaper but override colors with a specific scheme
     # (uncomment this while keeping `image` above for wallpaper + custom colors)
     # base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
-
+    targets = {
+      grub.enable = false;
+      chromium = {
+        enable = true;
+        colors.enable = true;
+      };
+      regreet = {
+        enable = true;
+        colors.enable = true;
+      };
+    };
     # Font configuration
     fonts = {
       monospace = {

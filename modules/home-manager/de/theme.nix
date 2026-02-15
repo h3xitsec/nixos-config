@@ -7,6 +7,10 @@
   stylix.targets = {
     nixvim.enable = true;
     kitty.enable = true; # Terminal
+    tmux = {
+      enable = true;
+      colors.enable = true;
+    };
     nixcord.enable = true; # Nixcord
     nixcord.fonts.enable = true;
     firefox = {
@@ -16,12 +20,18 @@
     };
     vscode.enable = true; # VSCode
     gtk.enable = true; # Already enabled by default
+    qt.enable = true; # Qt
     obsidian = {
       enable = true;
       vaultNames = ["obsidian"];
     };
     gnome.enable = true; # Gnome
-    noctalia-shell.enable = true;
+    yazi.enable = true; # Yazi file manager
+    k9s = {
+      enable = true; # K9s Kubernetes dashboard
+      colors.enable = true;
+    };
+    dank-material-shell.enable = false;
     # niri.enable = true;        # Automatically imported by niri-flake
   };
 
