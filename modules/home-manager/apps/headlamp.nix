@@ -3,8 +3,8 @@
   version = "0.39.0";
 
   src = pkgs.fetchurl {
-    url = "https://github.com/kubernetes-sigs/headlamp/releases/download/v0.39.0/Headlamp-0.39.0-linux-x64.AppImage";
-    hash = "sha256-tNAQz44YlyeqVQfhpEr3qhINB85RWOiGG5E2ZxoX43k=";
+    url = "https://github.com/kubernetes-sigs/headlamp/releases/download/v0.40.1/Headlamp-0.40.1-linux-x64.AppImage";
+    hash = "sha256-m+qjShFrVOi0ghYLt1VaIANeAHzNN036erAP2VYLVC8=";
   };
 
   appimageContents = pkgs.appimageTools.extract {inherit pname version src;};
