@@ -11,7 +11,16 @@
     loader = {
       efi.canTouchEfiVariables = true;
       efi.efiSysMountPoint = "/boot";
-      grub.enable = false;
+      grub = {
+        enable = false;
+        # efiSupport = true;
+        # device = "nodev";
+        # configurationLimit = 10;
+        # extraConfig = ''
+        #   serial --unit=0 --speed=115200 --word=8 --parity=no --stop=1
+        #   terminal_output console
+        # '';
+      };
       systemd-boot.enable = true;
       systemd-boot.consoleMode = "auto";
     };
