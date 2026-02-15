@@ -217,6 +217,7 @@
               inputs.nixcord.homeModules.nixcord
               ./hosts/h3xmac/home.nix
               ./modules/home-manager/apps/vscode.nix
+              ./modules/home-manager/shell/shell.nix
               ./modules/home-manager/shell/git.nix
               ./modules/home-manager/shell/zsh.nix
               ./modules/home-manager/de/wallpapers.nix

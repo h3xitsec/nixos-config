@@ -10,15 +10,6 @@
     username = username;
 
     packages = with pkgs; [
-      bat
-      eza
-      ripgrep
-      yazi
-      ncdu
-      duf
-      fd
-      httpie
-      fzf
       code-cursor
       caffeine
     ];
