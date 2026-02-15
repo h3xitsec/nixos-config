@@ -8,9 +8,7 @@
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
-    shellAliases = {
-      # alias = "command";
-    };
+    shellAliases = import ./aliases.nix;
     plugins = [
       {
         name = "zsh-nix-shell";

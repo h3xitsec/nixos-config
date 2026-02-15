@@ -4,16 +4,13 @@
   ...
 }: {
   # Modern CLI tools
+  programs.yazi = {
+    enable = true;
+  };
   home.packages = with pkgs; [
-    bat
     eza
-    ripgrep
     ncdu
     duf
-    fd
-    httpie
-    fzf
-    yazi
   ];
 
   programs = {
@@ -26,6 +23,7 @@
     # Bash configuration
     bash = {
       enable = true;
+      shellAliases = import ./aliases.nix;
       initExtra = ''
         SHELL=${pkgs.bash}/bin/bash
       '';
