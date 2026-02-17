@@ -146,6 +146,7 @@
                 ./modules/home-manager/shell/pentest-shell.nix
                 ./modules/home-manager/shell/git.nix
                 ./modules/home-manager/shell/nixvim.nix
+                ./modules/home-manager/shell/starship.nix
                 ./modules/home-manager/shell/zsh.nix
 
                 ./modules/home-manager/apps/browsers.nix

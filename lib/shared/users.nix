@@ -41,6 +41,7 @@
       then
         {
           inherit description;
+          shell = "${pkgs.fish}/bin/fish";
           createHome = true;
           extraGroups = allGroups;
           isNormalUser = true;

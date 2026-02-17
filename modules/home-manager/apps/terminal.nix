@@ -19,7 +19,7 @@
       confirm_os_window_close = "0";
       remember_window_size = "no";
       disable_ligatures = "never";
-      shell = "${pkgs.zsh}/bin/zsh";
+      shell = "${pkgs.fish}/bin/fish";
       initial_window_width = 1200;
       initial_window_height = 600;
       map = let
