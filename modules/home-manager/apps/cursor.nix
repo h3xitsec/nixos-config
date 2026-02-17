@@ -52,7 +52,6 @@ in {
         "cursor.general.gitGraphIndexing": "enabled",
         "cursor.cmdk.useThemedDiffBackground": true,
         "terminal.integrated.enableMultiLinePasteWarning": "false",
-        "terminal.integrated.defaultProfile.linux": "zsh",
         "files.watcherExclude": {
           "**/.git/objects/**": true,
           "**/.git/subtree-cache/**": true,

@@ -60,7 +60,6 @@ in {
       "workbench.tree.indent" = 12;
       "git.enableSmartCommit" = true;
       "git.confirmSync" = false;
-      "terminal.integrated.defaultProfile.linux" = "zsh";
     };
     profiles.default.keybindings = [
       {
