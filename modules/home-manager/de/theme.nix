@@ -7,6 +7,10 @@
   stylix.targets = {
     nixvim.enable = true;
     kitty.enable = true; # Terminal
+    starship = {
+      enable = true; # Starship
+      colors.enable = true;
+    };
     tmux = {
       enable = true;
       colors.enable = true;

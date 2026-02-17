@@ -44,6 +44,18 @@ in {
       };
       clip-to-geometry = true;
     }
+    {
+      matches = [
+        {app-id = "firefox";}
+      ];
+      default-column-width = {proportion = 0.75;};
+    }
+    {
+      matches = [
+        {app-id = "cursor";}
+      ];
+      open-maximized = true;
+    }
   ];
   # Layout
   programs.niri.settings.layout = {
