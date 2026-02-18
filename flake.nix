@@ -93,13 +93,12 @@
           nixos-hardware.nixosModules.dell-xps-15-9520
           inputs.stylix.nixosModules.stylix
           ./lib/shared/nix-settings.nix
-
           ./hosts/h3xlptp/configuration.nix
           ./hosts/h3xlptp/hardware.nix
           ./hosts/h3xlptp/users.nix
 
+          ./modules/nixos/apps/base-packages.nix
           ./modules/nixos/hardware/nvidia.nix
-
           ./modules/nixos/security/local-ca-cert.nix
 
           ./modules/nixos/de/niri.nix
@@ -173,6 +172,7 @@
       specialArgs = {inherit username nixpkgs;};
       modules = [
         ./hosts/h3xmac/configuration.nix
+        ./modules/nixos/apps/base-packages.nix
         ./modules/nixos/security/local-ca-cert.nix
         ./hosts/h3xmac/dock.nix
         ./hosts/h3xmac/homebrew.nix
