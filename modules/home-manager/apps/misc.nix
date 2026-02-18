@@ -10,6 +10,7 @@
 
     # Tools
     libreoffice-qt
+    kdePackages.kate
     wireshark
     remmina
     gnupg.out
