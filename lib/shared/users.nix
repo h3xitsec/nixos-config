@@ -54,6 +54,7 @@
         )
       else {
         inherit description;
+        shell = "${pkgs.fish}";
         home = "/Users/${username}";
       };
 
