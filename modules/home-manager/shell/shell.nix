@@ -16,6 +16,8 @@
     eza
     ncdu
     duf
+    grc
+    fzf
   ];
 
   programs = {
@@ -38,7 +40,19 @@
       shellAliases = import ./aliases.nix;
       interactiveShellInit = ''
         set SHELL ${pkgs.fish}/bin/fish
+        set -g fish_greeting # Disable greeting
       '';
+      plugins = [
+        # Enable a plugin (here grc for colorized command output) from nixpkgs
+        {
+          name = "grc";
+          src = pkgs.fishPlugins.grc.src;
+        }
+        {
+          name = "fish-fzf";
+          src = pkgs.fishPlugins.fzf.src;
+        }
+      ];
     };
   };
 }
