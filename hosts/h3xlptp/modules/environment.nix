@@ -5,16 +5,12 @@
   ...
 }: let
   # Import shared packages
-  sharedPackages = import ../../../lib/shared/packages.nix {inherit pkgs;};
+  #sharedPackages = import ../../../lib/shared/packages.nix {inherit pkgs;};
 in {
   environment = {
-    systemPackages =
-      # Use all shared packages
-      sharedPackages.all
-      # Add XPS15-specific hardware packages
-      ++ (with pkgs; [
-        tpm2-tss # TPM2 support for hardware security
-      ]);
+    systemPackages = with pkgs; [
+      tpm2-tss # TPM2 support for hardware security
+    ];
     # System packages list for reference
     etc."current-system-packages".text = let
       packages = builtins.map (p: "${p.name}") config.environment.systemPackages;
