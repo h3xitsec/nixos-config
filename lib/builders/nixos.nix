@@ -29,7 +29,6 @@ inputs.nixpkgs.lib.nixosSystem {
       {
         nixpkgs.overlays = [
           inputs.niri.overlays.niri
-          (import ../../overlays.nix {inherit inputs;}).fixups
         ];
       }
     ]

@@ -80,8 +80,6 @@
       x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
     };
 
-    overlays = import ./overlays.nix {inherit inputs;};
-
     # XPS15
     nixosConfigurations = {
       h3xlptp = lib.builders.nixos {
