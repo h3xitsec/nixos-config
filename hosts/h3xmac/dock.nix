@@ -19,6 +19,7 @@
       "/System/Applications/TV.app"
       "/Applications/Nix Apps/iTerm2.app"
       "/Users/${username}/Applications/Home Manager Apps/Visual Studio Code.app"
+      "/Users/${username}/Applications/Home Manager Apps/Cursor.app"
       "/Applications/BambuStudio.app"
       "/Applications/Caido.app"
       "/Applications/1Password.app"
