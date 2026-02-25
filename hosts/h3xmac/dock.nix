@@ -24,6 +24,8 @@
       "/Applications/Caido.app"
       "/Applications/1Password.app"
       "/Users/${username}/Applications/Autodesk Fusion.app"
+      "/System/Applications/Notes.app"
+      "/Applications/Obsidian.app"
     ];
   };
 }
