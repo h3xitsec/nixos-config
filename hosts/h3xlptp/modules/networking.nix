@@ -25,6 +25,7 @@
         "incusbr*"
         "virbr*"
         "vboxnet1"
+        "br-*"
       ];
       # Allow common services
       allowedTCPPorts = [
