@@ -156,6 +156,7 @@
                 ./modules/home-manager/apps/cursor.nix
                 ./modules/home-manager/apps/nixcord.nix
                 ./modules/home-manager/apps/protonmail-bridge.nix
+                ./modules/home-manager/apps/ollama.nix
               ];
             };
           }

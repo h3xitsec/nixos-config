@@ -15,7 +15,10 @@
     exec "$@"
   '';
 in {
-  environment.systemPackages = [nvidia-offload];
+  environment.systemPackages = with pkgs; [
+    nvidia-offload
+    nvtopPackages.nvidia
+  ];
 
   # Blacklist nouveau (open-source NVIDIA driver) to prevent conflicts
   boot.blacklistedKernelModules = ["nouveau" "ath3k" "nova_core"];
