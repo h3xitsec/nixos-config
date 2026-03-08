@@ -15,8 +15,8 @@
       dnsutils
       netcat-gnu
       net-tools
-      python312
-      python312Packages.pip
+      python3
+      python3Packages.pip
       pipx
       gnumake
       cacert

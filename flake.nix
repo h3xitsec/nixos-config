@@ -13,7 +13,9 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
-
+    devenv = {
+      url = "github:cachix/devenv/v2.0";
+    };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     home-manager.url = "github:nix-community/home-manager";
@@ -119,7 +121,7 @@
               backupFileExtension = "bak";
               useGlobalPkgs = true;
               useUserPackages = true;
-              extraSpecialArgs = {inherit username;};
+              extraSpecialArgs = {inherit username inputs;};
               users.h3x.imports = [
                 inputs.nixvim.homeModules.nixvim
                 inputs.nix-index.homeModules.nix-index
@@ -140,7 +142,7 @@
                 ./modules/home-manager/shell/common-session-variables.nix
                 ./modules/home-manager/shell/session-variables.nix
                 ./modules/home-manager/shell/tmux.nix
-                ./modules/home-manager/shell/pentest-shell.nix
+                #./modules/home-manager/shell/pentest-shell.nix
                 ./modules/home-manager/shell/git.nix
                 ./modules/home-manager/shell/nixvim.nix
                 ./modules/home-manager/shell/starship.nix

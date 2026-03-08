@@ -13,6 +13,10 @@
 
     extraHosts = ''
       127.0.0.1 dev.h3x.recon
+      127.0.0.1 nats
+      127.0.0.1 api
+      127.0.0.1 postgresql
+      127.0.0.1 redis
     '';
 
     nftables.enable = true;

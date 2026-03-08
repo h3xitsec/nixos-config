@@ -15,5 +15,6 @@
     protonvpn-gui
     thunderbird
     dbeaver-bin
+    lmstudio
   ];
 }

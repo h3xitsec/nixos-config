@@ -19,6 +19,7 @@
         "https://nix-community.cachix.org"
         "https://niri.cachix.org"
         "https://nixpkgs-wayland.cachix.org"
+        "https://devenv.cachix.org"
       ];
 
       trusted-public-keys = [
@@ -26,6 +27,7 @@
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
         "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
+        "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
       ];
 
       # Enable experimental features
