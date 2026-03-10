@@ -16,6 +16,7 @@
       "github"
       "microsoft-office"
       "obsidian"
+      "ollama"
     ];
   };
 }
