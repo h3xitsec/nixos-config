@@ -20,18 +20,14 @@
     grc
     fzf
     inputs.devenv.packages.${pkgs.system}.devenv
-    # (import (fetchTarball {
-    #   url = "https://install.devenv.sh/latest";
-    #   sha256 = "1i0b5k8cxw12cwjy77w52jadah00f9ihzn9h21kyf40zh0p2piyz";
-    # })).devenv
   ];
 
   programs = {
     # Direnv for development environments
-    # direnv = {
-    #   enable = true;
-    #   nix-direnv.enable = true;
-    # };
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
 
     # Bash configuration
     bash = {

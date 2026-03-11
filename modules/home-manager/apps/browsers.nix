@@ -1,6 +1,8 @@
 {pkgs, ...}: {
   home.sessionVariables.BROWSER = "firefox";
-
+  home.packages = with pkgs; [
+    tor-browser
+  ];
   programs.chromium = {
     enable = true;
   };
