@@ -212,7 +212,7 @@
         {
           home-manager = {
             useGlobalPkgs = true;
-            extraSpecialArgs = {inherit username;};
+            extraSpecialArgs = {inherit username inputs;};
             users.h3x.imports = [
               inputs.nixvim.homeModules.nixvim
               inputs.nix-index.homeModules.nix-index
