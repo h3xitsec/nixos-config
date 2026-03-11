@@ -19,7 +19,8 @@
     duf
     grc
     fzf
-    inputs.devenv.packages.${pkgs.system}.devenv
+    devenv
+    #inputs.devenv.packages.${pkgs.system}.devenv
   ];
 
   programs = {

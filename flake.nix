@@ -13,9 +13,9 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
-    devenv = {
-      url = "github:cachix/devenv/v2.0";
-    };
+    #devenv = {
+    #   url = "github:cachix/devenv/v2.0";
+    # };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     home-manager.url = "github:nix-community/home-manager";
