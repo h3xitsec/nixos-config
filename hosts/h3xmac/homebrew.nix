@@ -17,6 +17,7 @@
       "microsoft-office"
       "obsidian"
       "ollama"
+      "docker"
     ];
   };
 }
