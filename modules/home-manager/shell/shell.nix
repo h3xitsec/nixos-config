@@ -20,6 +20,14 @@
     grc
     fzf
     devenv
+    # (devenv.overrideAttrs (prev: rec {
+    #   version = "2.0.4";
+    #   src = pkgs.fetchFromGitHub {
+    #     inherit (prev.src) owner repo;
+    #     tag = "v2.0.4";
+    #     hash = "sha256-1DpF5F7zgOZ7QrRjz23315pUoF532dHnsU/V4UQithk=";
+    #   };
+    # }))
     #inputs.devenv.packages.${pkgs.system}.devenv
   ];
 
