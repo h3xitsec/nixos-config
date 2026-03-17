@@ -21,6 +21,7 @@
 
     nftables.enable = true;
     firewall = {
+      checkReversePath = "loose";
       enable = true;
       trustedInterfaces = [
         "wlp0s20f3"
