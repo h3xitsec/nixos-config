@@ -14,8 +14,9 @@
       flake = false;
     };
     #devenv = {
-    #   url = "github:cachix/devenv/v2.0";
-    # };
+    #  url = "github:cachix/devenv/3202cb038eb6dfa2411a4b09a05412face5d852c";
+    #  #url = "github:cachix/devenv/latest";
+    #};
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     home-manager.url = "github:nix-community/home-manager";
@@ -110,7 +111,7 @@
           ./modules/nixos/apps/obsidian.nix
           ./modules/nixos/apps/steam.nix
           ./modules/nixos/apps/gparted.nix
-
+          ./modules/nixos/apps/ollama.nix
           # Alejandra formatter
           {environment.systemPackages = [alejandra.defaultPackage."x86_64-linux"];}
 
@@ -158,7 +159,6 @@
                 ./modules/home-manager/apps/cursor.nix
                 ./modules/home-manager/apps/nixcord.nix
                 ./modules/home-manager/apps/protonmail-bridge.nix
-                ./modules/home-manager/apps/ollama.nix
               ];
             };
           }
