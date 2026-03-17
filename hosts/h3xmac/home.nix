@@ -12,6 +12,7 @@
     packages = with pkgs; [
       code-cursor
       caffeine
+      telegram-desktop
     ];
   };
 

@@ -17,7 +17,7 @@
         _FXShowPosixPathInTitle = true; # title bar full path
         ShowPathbar = true; # breadcrumb nav at bottom
         ShowStatusBar = true; # file count & disk space
-      };
+      };  
       trackpad = {
         Clicking = true; # enable tap to click
         TrackpadRightClick = true; # enable two finger right click
@@ -112,6 +112,7 @@
   };
   environment.systemPackages = with pkgs; [
     iterm2
+    #tailscale-gui
   ];
   fonts = {
     packages = with pkgs; [
