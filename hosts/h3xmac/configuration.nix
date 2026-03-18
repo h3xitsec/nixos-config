@@ -112,6 +112,7 @@
   };
   environment.systemPackages = with pkgs; [
     iterm2
+    mas
     #tailscale-gui
   ];
   fonts = {
