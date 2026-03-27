@@ -20,12 +20,14 @@
       "/Applications/Nix Apps/iTerm2.app"
       "/Users/${username}/Applications/Home Manager Apps/Visual Studio Code.app"
       "/Users/${username}/Applications/Home Manager Apps/Cursor.app"
+      "/Users/${username}/Applications/Home Manager Apps/Headlamp.app"
       "/Applications/BambuStudio.app"
       "/Applications/Caido.app"
       "/Applications/1Password.app"
       "/Users/${username}/Applications/Autodesk Fusion.app"
       "/System/Applications/Notes.app"
       "/Applications/Obsidian.app"
+      "/Applications/GitHub Desktop.app"
     ];
   };
 }
