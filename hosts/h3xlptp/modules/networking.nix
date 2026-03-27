@@ -17,6 +17,7 @@
       127.0.0.1 api
       127.0.0.1 postgresql
       127.0.0.1 redis
+      127.0.0.1 ct-monitor
     '';
 
     nftables.enable = true;
