@@ -59,6 +59,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+    macshot-tap = {
+      url = "github:sw33tLie/homebrew-macshot";
+      flake = false;
+    };
     #apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
   };
 
@@ -199,6 +203,7 @@
 
             # Optional: Declarative tap management
             taps = {
+              "sw33tLie/homebrew-macshot" = inputs.macshot-tap;
               "homebrew/homebrew-core" = homebrew-core;
               "homebrew/homebrew-cask" = homebrew-cask;
             };

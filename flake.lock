@@ -401,6 +401,22 @@
         "type": "github"
       }
     },
+    "macshot-tap": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1774633404,
+        "narHash": "sha256-8/xchk6V+PbjazXpKpOn6IDsg9c6j8GtRGlB/tt0mWI=",
+        "owner": "sw33tLie",
+        "repo": "homebrew-macshot",
+        "rev": "2456cd8ef92d1f5ad0066ef626eaa7050a900e0f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "sw33tLie",
+        "repo": "homebrew-macshot",
+        "type": "github"
+      }
+    },
     "niri": {
       "inputs": {
         "niri-stable": "niri-stable",
@@ -736,6 +752,7 @@
         "home-manager": "home-manager",
         "homebrew-cask": "homebrew-cask",
         "homebrew-core": "homebrew-core",
+        "macshot-tap": "macshot-tap",
         "niri": "niri",
         "nix-homebrew": "nix-homebrew",
         "nix-index": "nix-index",

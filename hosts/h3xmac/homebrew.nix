@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, inputs, ...}: {
   homebrew = {
     enable = true;
     onActivation.cleanup = "uninstall";
@@ -10,8 +10,7 @@
       "1Password for Safari" = 1569813296;
       "Pages" = 409201541;
     };
-    taps = [
-    ];
+    taps = [];
     brews = [];
     casks = [
       "caido"
@@ -26,6 +25,7 @@
       "ollama-app"
       "docker-desktop"
       "google-earth-pro"
+      "macshot"
     ];
   };
 }
