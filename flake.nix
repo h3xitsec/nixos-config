@@ -63,6 +63,10 @@
       url = "github:sw33tLie/homebrew-macshot";
       flake = false;
     };
+    cf-keylayout-tap = {
+      url = "github:joallard/homebrew-cf-keylayout";
+      flake = false;
+    };
     #apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
   };
 
@@ -203,6 +207,7 @@
 
             # Optional: Declarative tap management
             taps = {
+              "joallard/homebrew-cf-keylayout" = inputs.cf-keylayout-tap;
               "sw33tLie/homebrew-macshot" = inputs.macshot-tap;
               "homebrew/homebrew-core" = homebrew-core;
               "homebrew/homebrew-cask" = homebrew-cask;

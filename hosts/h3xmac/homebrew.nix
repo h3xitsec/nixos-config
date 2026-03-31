@@ -11,7 +11,8 @@
       "Pages" = 409201541;
     };
     taps = [];
-    brews = [];
+    brews = [
+    ];
     casks = [
       "caido"
       "1password"
@@ -26,6 +27,7 @@
       "docker-desktop"
       "google-earth-pro"
       "macshot"
+      "cf-keylayout"
     ];
   };
 }
