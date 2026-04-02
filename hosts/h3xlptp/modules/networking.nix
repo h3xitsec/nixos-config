@@ -18,6 +18,7 @@
       127.0.0.1 postgresql
       127.0.0.1 redis
       127.0.0.1 ct-monitor
+      127.0.0.1 host.minikube.internal
     '';
 
     nftables.enable = true;
