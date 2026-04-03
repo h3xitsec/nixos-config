@@ -154,7 +154,7 @@
                 ./modules/home-manager/shell/common-session-variables.nix
                 ./modules/home-manager/shell/session-variables.nix
                 ./modules/home-manager/shell/tmux.nix
-                #./modules/home-manager/shell/pentest-shell.nix
+                # ./modules/home-manager/shell/pentest-shell.nix
                 ./modules/home-manager/shell/git.nix
                 ./modules/home-manager/shell/nixvim.nix
                 ./modules/home-manager/shell/starship.nix
@@ -244,7 +244,7 @@
               ./modules/home-manager/shell/nixvim.nix
               ./modules/home-manager/apps/headlamp.nix
               ./modules/home-manager/apps/nixcord.nix
-             #./modules/home-manager/apps/openclaw
+              # ./modules/home-manager/apps/openclaw
             ];
           };
         }
