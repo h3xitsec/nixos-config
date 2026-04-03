@@ -5,7 +5,7 @@
     parsec-bin
     code-cursor
     github-desktop
-    claude-code
+    # claude-code
     libreoffice-qt
     kdePackages.kate
     wireshark
@@ -15,6 +15,6 @@
     protonvpn-gui
     thunderbird
     dbeaver-bin
-    lmstudio
+    # lmstudio
   ];
 }
