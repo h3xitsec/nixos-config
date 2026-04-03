@@ -26,26 +26,26 @@
     wireplumber.enable = true;
     wireplumber.configPackages = [];
 
-    # Low latency configuration
-    extraConfig.pipewire."92-low-latency" = {
+    # ~21 ms buffers at 48 kHz — fewer wakeups than fixed 32-sample (better on battery).
+    extraConfig.pipewire."92-audio-buffer" = {
       context.properties = {
         default.clock.rate = 48000;
-        default.clock.quantum = 32;
+        default.clock.quantum = 1024;
         default.clock.min-quantum = 32;
-        default.clock.max-quantum = 32;
+        default.clock.max-quantum = 2048;
       };
     };
 
-    extraConfig.pipewire-pulse."92-low-latency" = {
+    extraConfig.pipewire-pulse."92-audio-buffer" = {
       pulse.properties = {
-        pulse.min.req = "32/48000";
-        pulse.default.req = "32/48000";
-        pulse.max.req = "32/48000";
+        pulse.min.req = "1024/48000";
+        pulse.default.req = "1024/48000";
+        pulse.max.req = "2048/48000";
         pulse.min.quantum = "32/48000";
-        pulse.max.quantum = "32/48000";
+        pulse.max.quantum = "2048/48000";
       };
       stream.properties = {
-        node.latency = "32/48000";
+        node.latency = "1024/48000";
         resample.quality = 1;
       };
     };
@@ -59,25 +59,22 @@
   services.tlp = {
     enable = true;
     settings = {
-      # ----- CPU (main culprit for "slow" feeling) -----
+      # ----- CPU -----
       CPU_SCALING_GOVERNOR_ON_AC = "performance";
-      CPU_SCALING_GOVERNOR_ON_BAT = "powersave"; # Keep powersave - HWP does the real work
+      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
 
-      # EPP: This is the key setting for Alder Lake responsiveness
       CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
-      CPU_ENERGY_PERF_POLICY_ON_BAT = "balance_performance"; # Was balance_power, now snappier
+      CPU_ENERGY_PERF_POLICY_ON_BAT = "balance_power";
 
-      # Turbo boost - keep it, EPP will limit when idle anyway
       CPU_BOOST_ON_AC = 1;
-      CPU_BOOST_ON_BAT = 1;
+      CPU_BOOST_ON_BAT = 0;
 
-      # HWP dynamic boost - allow burst performance on battery
       CPU_HWP_DYN_BOOST_ON_AC = 1;
-      CPU_HWP_DYN_BOOST_ON_BAT = 1; # Changed: allows short performance bursts
+      CPU_HWP_DYN_BOOST_ON_BAT = 0;
 
       # ----- Platform Profile -----
       PLATFORM_PROFILE_ON_AC = "performance";
-      PLATFORM_PROFILE_ON_BAT = "balanced"; # Keep balanced (not low-power)
+      PLATFORM_PROFILE_ON_BAT = "low-power";
 
       # ----- Disk (aggressive APM causes micro-stutters) -----
       DISK_DEVICES = "nvme0n1";
@@ -95,22 +92,20 @@
       RUNTIME_PM_ON_AC = "on";
       RUNTIME_PM_ON_BAT = "auto";
 
-      # ----- WiFi (keep responsive) -----
       WIFI_PWR_ON_AC = "off";
-      WIFI_PWR_ON_BAT = "off"; # Changed: WiFi power save adds latency
+      WIFI_PWR_ON_BAT = "on";
 
       # ----- USB -----
       USB_AUTOSUSPEND = 1;
       USB_EXCLUDE_BTUSB = 1;
       USB_EXCLUDE_PHONE = 1;
 
-      # ----- Audio -----
       SOUND_POWER_SAVE_ON_AC = 0;
-      SOUND_POWER_SAVE_ON_BAT = 0; # Changed: avoids audio latency/pops
+      SOUND_POWER_SAVE_ON_BAT = 1;
 
       # ----- Battery thresholds -----
       START_CHARGE_THRESH_BAT0 = 75;
-      STOP_CHARGE_THRESH_BAT0 = 80;
+      STOP_CHARGE_THRESH_BAT0 = 90;
 
       # ----- Misc -----
       NMI_WATCHDOG = 0;

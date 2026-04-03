@@ -41,7 +41,7 @@
         "intel_pstate=active"
         "acpi_rev_override=1"
         "mem_sleep_default=s2idle"
-        "pcie_aspm=off"
+        # Allow PCIe ASPM (better battery). Re-add "pcie_aspm=off" if GPU/NIC instability returns.
         "quiet"
         "splash"
         "nowatchdog"
