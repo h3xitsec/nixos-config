@@ -59,6 +59,10 @@
       options nouveau modeset=0
       options iwlwifi power_save=1 disable_11ax=0 swcrypto=0 bt_coex_active=1
       options iwlmvm power_scheme=3
+      options i915 enable_psr=2
+      options i915 enable_fbc=1
+      options i915 enable_dc=2
+      options i915 enable_guc=3
     '';
 
     blacklistedKernelModules = ["spd5118" "nouveau"];

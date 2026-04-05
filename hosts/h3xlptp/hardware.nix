@@ -71,7 +71,7 @@
     # Power management
     powerManagement = {
       enable = true;
-      cpuFreqGovernor = "ondemand";
+      #cpuFreqGovernor = "ondemand";
     };
 
     # Platform

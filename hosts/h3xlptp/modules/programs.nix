@@ -7,7 +7,7 @@
 
   #zsh
   programs.zsh.enable = true;
-
+  programs.fish.enable = true;
   # nix-ld for running non-NixOS binaries
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
