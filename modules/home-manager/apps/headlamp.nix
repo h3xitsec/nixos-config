@@ -44,7 +44,7 @@
     else let
       src = pkgs.fetchurl {
         url = "https://github.com/kubernetes-sigs/headlamp/releases/download/v${version}/Headlamp-${version}-linux-x64.AppImage";
-        hash = "sha256-SdadGirmfSfj1gmbxc5IKRdwnHqkI4keSE0BlkKGW4c=";
+        hash = "sha256-m+qjShFrVOi0ghYLt1VaIANeAHzNN036erAP2VYLVC8=";
       };
 
       appimageContents = pkgs.appimageTools.extract {inherit pname version src;};
