@@ -11,5 +11,6 @@
   fileSystems."/home/${username}/Obsidian" = {
     device = "/mnt/data/user-dirs/Documents/obsidian";
     options = ["bind"];
+    fsType = "fuse.bindfs";
   };
 }

@@ -1,10 +1,12 @@
 {pkgs, ...}: let
   pname = "headlamp";
-  version = "0.40.1";
+  version_linux = "0.41.0";
+  version_darwin = "0.40.1";
 
   headlampApp =
     if pkgs.stdenv.isDarwin
     then let
+      version = version_darwin;
       dmgInfo = {
         "aarch64-darwin" = {
           url = "https://github.com/kubernetes-sigs/headlamp/releases/download/v${version}/Headlamp-${version}-mac-arm64.dmg";
@@ -42,9 +44,10 @@
         '';
       }
     else let
+      version = version_linux;
       src = pkgs.fetchurl {
         url = "https://github.com/kubernetes-sigs/headlamp/releases/download/v${version}/Headlamp-${version}-linux-x64.AppImage";
-        hash = "sha256-m+qjShFrVOi0ghYLt1VaIANeAHzNN036erAP2VYLVC8=";
+        hash = "sha256-SdadGirmfSfj1gmbxc5IKRdwnHqkI4keSE0BlkKGW4c=";
       };
 
       appimageContents = pkgs.appimageTools.extract {inherit pname version src;};
