@@ -13,6 +13,7 @@
       code-cursor
       caffeine
       telegram-desktop
+      wireshark
     ];
   };
 
