@@ -169,7 +169,6 @@
                 ./modules/home-manager/apps/vscode.nix
                 ./modules/home-manager/apps/cursor.nix
                 ./modules/home-manager/apps/nixcord.nix
-                ./modules/home-manager/apps/protonmail-bridge.nix
               ];
             };
           }

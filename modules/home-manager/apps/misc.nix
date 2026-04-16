@@ -13,7 +13,8 @@
     gnupg.out
     go
     proton-vpn
-    thunderbird
+    protonmail-desktop
+    #thunderbird
     dbeaver-bin
     # lmstudio
   ];
