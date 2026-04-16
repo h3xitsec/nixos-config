@@ -12,7 +12,7 @@
     remmina
     gnupg.out
     go
-    protonvpn-gui
+    proton-vpn
     thunderbird
     dbeaver-bin
     # lmstudio
