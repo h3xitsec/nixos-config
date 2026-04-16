@@ -190,8 +190,8 @@
         ./hosts/h3xmac/users.nix
         ./lib/shared/nix-settings.nix
         # nix-openclaw overlay + darwin module
-        {nixpkgs.overlays = [inputs.nix-openclaw.overlays.default];}
-        inputs.nix-openclaw.darwinModules.openclaw
+        # {nixpkgs.overlays = [inputs.nix-openclaw.overlays.default];}
+        # inputs.nix-openclaw.darwinModules.openclaw
         nix-homebrew.darwinModules.nix-homebrew
         {
           nix-homebrew = {
