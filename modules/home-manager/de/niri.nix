@@ -56,6 +56,18 @@ in {
       ];
       open-maximized = true;
     }
+    {
+      matches = [
+        {app-id = "kitty";}
+      ];
+      default-column-width = {proportion = 0.75;};
+    }
+    {
+      matches = [
+        {app-id = "cursor";}
+      ];
+      open-maximized = true;
+    }
   ];
   # Layout
   programs.niri.settings.layout = {
