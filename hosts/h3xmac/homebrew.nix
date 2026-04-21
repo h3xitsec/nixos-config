@@ -28,6 +28,7 @@
       "google-earth-pro"
       "macshot"
       "cf-keylayout"
+      "ghostty"
     ];
   };
 }
