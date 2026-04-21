@@ -14,8 +14,6 @@
     go
     proton-vpn
     protonmail-desktop
-    #thunderbird
     dbeaver-bin
-    # lmstudio
   ];
 }
