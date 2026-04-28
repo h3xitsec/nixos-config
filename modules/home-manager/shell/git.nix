@@ -1,6 +1,7 @@
-{...}: {
+{pkgs, ...}: {
   programs.git = {
     enable = true;
+    package = pkgs.gitFull;
     settings = {
       user.email = "h3xit@protonmail.com";
       user.name = "h3xit";

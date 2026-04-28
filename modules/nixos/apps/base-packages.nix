@@ -5,10 +5,10 @@
         with ps; [
           requests
         ]))
-      git
       curl
       wget
       jq
+      gitFull
       unzip
       cachix
       btop
