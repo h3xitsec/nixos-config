@@ -11,18 +11,13 @@
 
     packages = with pkgs; [
       code-cursor
-      caffeine
-      telegram-desktop
+      # caffeine
+      # telegram-desktop
       wireshark
     ];
   };
 
   programs = {
-    # Direnv for development environments
-    direnv = {
-      enable = true;
-      nix-direnv.enable = true;
-    };
 
     # Nix index for command-not-found
     nix-index.enable = true;

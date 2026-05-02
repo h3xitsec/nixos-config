@@ -5,6 +5,7 @@
     onActivation.autoUpdate = true;
     onActivation.upgrade = true;
     masApps = {
+      "Amphetamine" = 937984704;
       "Locally AI - Local AI Chat" = 6741426692;
       "Tailscale" = 1475387142;
       "1Password for Safari" = 1569813296;

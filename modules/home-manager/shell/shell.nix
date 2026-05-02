@@ -33,7 +33,8 @@
 
   programs = {
     # Direnv for development environments
-    direnv = {
+    # Enable direnv only on Linux
+    direnv = pkgs.lib.mkIf pkgs.stdenv.isLinux {
       enable = true;
       nix-direnv.enable = true;
     };
