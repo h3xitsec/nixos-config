@@ -3,7 +3,7 @@
   nix = {
     # Build optimization - use all available cores
     settings = {
-      cores = 0; # Use all cores
+      cores = 1; # Use all cores
       max-jobs = "auto";
 
       # Store optimization
