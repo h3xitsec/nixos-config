@@ -1,19 +1,20 @@
 {
   pkgs,
-  config,
   ...
 }: let
-  # Create the desktop item
-  caidoDesktopItem = pkgs.makeDesktopItem {
-    name = "caido-desktop"; # Internal Nix name for the derivation
-    desktopName = "Caido"; # Name displayed in the application menu
-    exec = "${pkgs.caido-desktop}/bin/caido-desktop"; # Command to execute the application
-    comment = "Lightweight web security auditing toolkit";
-    # You can specify an icon, e.g., icon = "${pkgs.gnome.adwaita-icon-theme}/share/icons/gnome/scalable/apps/custom-app.svg";
-    icon = "${config.xdg.dataHome}/icons/caido.png";
-    terminal = false;
-    categories = ["Utility" "Application"];
-  };
+  # Workaround for nixpkgs PR #510748 (caido-desktop: fix exec in desktop file).
+  # Remove once the PR is merged and nixpkgs input is updated.
+  #
+  # appimageTools.wrapType2 uses a custom buildCommand; postFixup is not run, so
+  # patch like nixpkgs PR #510748 by appending after the inlined install commands.
+  caido-desktop = pkgs.caido-desktop.overrideAttrs (old: {
+    buildCommand =
+      old.buildCommand
+      + ''
+        substituteInPlace $out/share/applications/caido.desktop \
+          --replace-fail "Exec=AppRun --no-sandbox %U" "Exec=caido-desktop %U"
+      '';
+  });
 in {
-  home.packages = with pkgs; [caido-desktop caidoDesktopItem];
+  home.packages = [caido-desktop];
 }
