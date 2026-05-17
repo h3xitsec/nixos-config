@@ -189,6 +189,5 @@ in {
     satty
     wlr-randr
     networkmanagerapplet
-    capitaine-cursors
   ];
 }

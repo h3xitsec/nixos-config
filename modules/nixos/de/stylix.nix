@@ -61,8 +61,8 @@
 
     # Cursor theme
     cursor = {
-      package = pkgs.capitaine-cursors;
-      name = "capitaine-cursors";
+      package = pkgs.capitaine-cursors-themed;
+      name = "Capitaine Cursors";
       size = 24;
     };
 
