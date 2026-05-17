@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   programs.k9s.enable = true;
   home.packages = with pkgs; [
-#    telegram-desktop
+    #    telegram-desktop
     parsec-bin
     code-cursor
     github-desktop
@@ -15,5 +15,6 @@
     proton-vpn
     protonmail-desktop
     dbeaver-bin
+    caido-desktop
   ];
 }

@@ -161,7 +161,6 @@
                 ./modules/home-manager/shell/zsh.nix
 
                 ./modules/home-manager/apps/browsers.nix
-                ./modules/home-manager/apps/caido.nix
                 ./modules/home-manager/apps/headlamp.nix
                 ./modules/home-manager/apps/misc.nix
                 ./modules/home-manager/apps/terminal.nix
