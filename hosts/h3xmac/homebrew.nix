@@ -30,6 +30,7 @@
       "macshot"
       "cf-keylayout"
       "ghostty"
+      "claude"
     ];
   };
 }

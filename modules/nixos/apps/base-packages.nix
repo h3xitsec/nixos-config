@@ -17,12 +17,12 @@
       net-tools
       python3
       python3Packages.pip
-      pipx
       gnumake
       cacert
     ]
     # Add linux-specific packages
     ++ pkgs.lib.optionals pkgs.stdenv.isLinux [
+      pipx
       iotop
       powertop
       lm_sensors
