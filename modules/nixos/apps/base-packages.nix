@@ -22,7 +22,14 @@
     ]
     # Add linux-specific packages
     ++ pkgs.lib.optionals pkgs.stdenv.isLinux [
-      pipx
+      (pipx.overridePythonAttrs (old: {
+        disabledTests =
+          (old.disabledTests or [])
+          ++ [
+            "test_fix_package_name"
+            "test_parse_specifier_for_metadata"
+          ];
+      }))
       iotop
       powertop
       lm_sensors

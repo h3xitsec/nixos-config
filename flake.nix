@@ -13,13 +13,9 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
-    #devenv = {
-    #  url = "github:cachix/devenv/3202cb038eb6dfa2411a4b09a05412face5d852c";
-    #  #url = "github:cachix/devenv/latest";
-    #};
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    home-manager.url = "github:nix-community/home-manager";
+    home-manager.url = "github:nix-community/home-manager/release-26.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
@@ -47,18 +43,13 @@
     nix-index.inputs.nixpkgs.follows = "nixpkgs";
 
     nixvim.url = "github:nix-community/nixvim";
-    nixvim.inputs.nixpkgs.follows = "nixpkgs";
+    # nixvim.inputs.nixpkgs.follows = "nixpkgs";
     stylix.url = "github:danth/stylix";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
     nixcord = {
       url = "github:kaylorben/nixcord";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # nix-openclaw = {
-    #   url = "github:openclaw/nix-openclaw";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    #   inputs.home-manager.follows = "home-manager";
-    # };
     macshot-tap = {
       url = "github:sw33tLie/homebrew-macshot";
       flake = false;
@@ -67,7 +58,6 @@
       url = "github:joallard/homebrew-cf-keylayout";
       flake = false;
     };
-    #apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
   };
 
   outputs = inputs @ {
@@ -188,9 +178,6 @@
         ./hosts/h3xmac/homebrew.nix
         ./hosts/h3xmac/users.nix
         ./lib/shared/nix-settings.nix
-        # nix-openclaw overlay + darwin module
-        # {nixpkgs.overlays = [inputs.nix-openclaw.overlays.default];}
-        # inputs.nix-openclaw.darwinModules.openclaw
         nix-homebrew.darwinModules.nix-homebrew
         {
           nix-homebrew = {
@@ -242,7 +229,6 @@
               ./modules/home-manager/shell/nixvim.nix
               ./modules/home-manager/apps/headlamp.nix
               ./modules/home-manager/apps/nixcord.nix
-              # ./modules/home-manager/apps/openclaw
             ];
           };
         }
