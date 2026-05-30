@@ -31,6 +31,7 @@
       "cf-keylayout"
       "ghostty"
       "claude"
+      "tor-browser"
     ];
   };
 }
