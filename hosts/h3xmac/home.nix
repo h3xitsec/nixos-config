@@ -14,6 +14,8 @@
       # caffeine
       # telegram-desktop
       wireshark
+      stockfish
+      arena
     ];
   };
 
