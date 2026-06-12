@@ -115,6 +115,9 @@
     mas
     #tailscale-gui
   ];
+  environment.variables = {
+    HOMEBREW_DEVELOPER = "1";
+  };
   fonts = {
     packages = with pkgs; [
       # icon fonts

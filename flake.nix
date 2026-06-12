@@ -185,7 +185,7 @@
             enable = true;
 
             # Apple Silicon Only: Also install Homebrew under the default Intel prefix for Rosetta 2
-            enableRosetta = true;
+            enableRosetta = false;
 
             # User owning the Homebrew prefix
             user = "h3x";
@@ -228,7 +228,7 @@
               ./modules/home-manager/shell/common-session-variables.nix
               ./modules/home-manager/shell/nixvim.nix
               ./modules/home-manager/apps/headlamp.nix
-              ./modules/home-manager/apps/nixcord.nix
+              #./modules/home-manager/apps/nixcord.nix
             ];
           };
         }

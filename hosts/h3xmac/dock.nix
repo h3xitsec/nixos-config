@@ -15,7 +15,7 @@
       "/Applications/Proton Mail.app"
       "/System/Applications/Facetime.app"
       "/System/Applications/Messages.app"
-      "/Users/${username}/Applications/Home Manager Apps/Discord.app"
+      #"/Users/${username}/Applications/Home Manager Apps/Discord.app"
       "/System/Applications/Music.app"
       "/System/Applications/TV.app"
       "/Applications/Ghostty.app"

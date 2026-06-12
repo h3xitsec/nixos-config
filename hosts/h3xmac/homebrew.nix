@@ -10,14 +10,16 @@
       "Tailscale" = 1475387142;
       "1Password for Safari" = 1569813296;
       "Pages" = 409201541;
+      #"Xcode" = 497799835;
     };
     taps = [];
     brews = [
+      #"container"
     ];
     casks = [
       "caido"
       "1password"
-      "logi-options+"
+      #"logi-options+"
       "autodesk-fusion"
       "parsec"
       "bambu-studio"
