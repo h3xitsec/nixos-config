@@ -34,6 +34,8 @@
       "ghostty"
       "claude"
       "tor-browser"
+      "unity-hub"
+      "blender"
     ];
   };
 }
