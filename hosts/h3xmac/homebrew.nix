@@ -36,6 +36,7 @@
       "tor-browser"
       "unity-hub"
       "blender"
+      "lm-studio"
     ];
   };
 }

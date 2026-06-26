@@ -14,6 +14,7 @@
       # caffeine
       # telegram-desktop
       wireshark
+      unrar
     ];
   };
 
