@@ -17,6 +17,8 @@
         _FXShowPosixPathInTitle = true; # title bar full path
         ShowPathbar = true; # breadcrumb nav at bottom
         ShowStatusBar = true; # file count & disk space
+        NewWindowTarget = "Home"; # new window target
+        #NewWindowTargetPath = "file://${HOME}"; # new window target path
       };  
       trackpad = {
         Clicking = true; # enable tap to click
