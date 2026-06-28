@@ -12,7 +12,7 @@
         SHOWFULLNAME = true;
       };
       finder = {
-        AppleShowAllFiles = true; # hidden files
+        AppleShowAllFiles = false; # hidden files
         AppleShowAllExtensions = true; # file extensions
         _FXShowPosixPathInTitle = true; # title bar full path
         ShowPathbar = true; # breadcrumb nav at bottom
@@ -27,6 +27,7 @@
       };
       NSGlobalDomain = {
         # `defaults read NSGlobalDomain "xxx"`
+        "com.apple.mouse.tapBehavior" = 1;
         "com.apple.swipescrolldirection" = true; # enable natural scrolling(default to true)
         "com.apple.sound.beep.feedback" = 0; # disable beep sound when pressing volume up/down key
         AppleInterfaceStyle = "Dark"; # dark mode
@@ -53,10 +54,12 @@
         ".GlobalPreferences" = {
           # automatically switch to a new space when switching to the application
           AppleSpacesSwitchOnActivate = true;
+          "com.apple.mouse.scaling" = 7.0;
         };
         NSGlobalDomain = {
           # Add a context menu item for showing the Web Inspector in web views
           WebKitDeveloperExtras = true;
+          "com.apple.mouse.linear" = false;
         };
         "com.apple.finder" = {
           ShowExternalHardDrivesOnDesktop = true;

@@ -9,8 +9,8 @@
       "Locally AI - Local AI Chat" = 6741426692;
       "Tailscale" = 1475387142;
       "1Password for Safari" = 1569813296;
-      "Pages" = 409201541;
-      #"Xcode" = 497799835;
+      #"Pages" = 409201541;
+      "Xcode" = 497799835;
     };
     taps = [];
     brews = [
@@ -28,7 +28,7 @@
       "obsidian"
       "ollama-app"
       "docker-desktop"
-      "google-earth-pro"
+      #"google-earth-pro"
       "macshot"
       "cf-keylayout"
       "ghostty"

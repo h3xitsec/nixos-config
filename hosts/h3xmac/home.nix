@@ -15,6 +15,7 @@
       # telegram-desktop
       wireshark
       unrar
+      protonmail-desktop
     ];
   };
 

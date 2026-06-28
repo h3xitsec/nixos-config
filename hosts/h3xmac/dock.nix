@@ -6,13 +6,16 @@
   system.defaults.dock = {
     autohide = false;
     orientation = "bottom";
+    tilesize = 36;
     show-process-indicators = false;
+    largesize = 48;
+    magnification = true;
     show-recents = false;
     persistent-apps = [
       "/System/Applications/System Settings.app"
       "/System/Cryptexes/App/System/Applications/Safari.app"
       "/System/Applications/Mail.app"
-      "/Applications/Proton Mail.app"
+      "/Users/${username}/Applications/Home Manager Apps/Proton Mail.app"
       "/System/Applications/Facetime.app"
       "/System/Applications/Messages.app"
       #"/Users/${username}/Applications/Home Manager Apps/Discord.app"
