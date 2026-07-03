@@ -1,4 +1,4 @@
-{pkgs, inputs, ...}: {
+{...}: {
   homebrew = {
     enable = true;
     onActivation.cleanup = "uninstall";

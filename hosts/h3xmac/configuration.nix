@@ -18,8 +18,7 @@
         ShowPathbar = true; # breadcrumb nav at bottom
         ShowStatusBar = true; # file count & disk space
         NewWindowTarget = "Home"; # new window target
-        #NewWindowTargetPath = "file://${HOME}"; # new window target path
-      };  
+      };
       trackpad = {
         Clicking = true; # enable tap to click
         TrackpadRightClick = true; # enable two finger right click
@@ -51,6 +50,11 @@
         NSAutomaticWindowAnimationsEnabled = false;
       };
       CustomUserPreferences = {
+        "com.apple.screensaver" = {
+          # Require password immediately after sleep or screen saver begins
+          askForPassword = true;
+          askForPasswordDelay = 0;
+        };
         ".GlobalPreferences" = {
           # automatically switch to a new space when switching to the application
           AppleSpacesSwitchOnActivate = true;
@@ -84,11 +88,6 @@
           HideDesktop = 0; # Do not hide items on desktop & stage manager
           StageManagerHideWidgets = 0;
           StandardHideWidgets = 0;
-        };
-        "com.apple.screensaver" = {
-          # Require password immediately after sleep or screen saver begins
-          askForPassword = 1;
-          askForPasswordDelay = 0;
         };
         "com.apple.screencapture" = {
           location = "~/Desktop";

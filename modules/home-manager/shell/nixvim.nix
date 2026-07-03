@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{...}: {
   # NIXVIM
   programs.nixvim = {
     enable = true;

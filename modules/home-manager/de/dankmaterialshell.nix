@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }: {
   # Define custom options to expose DMS commands for use in other modules

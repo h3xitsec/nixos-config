@@ -1,8 +1,4 @@
-{
-  lib,
-  config,
-  ...
-}: {
+{lib, ...}: {
   networking = {
     hostName = "h3xlptp";
     useDHCP = lib.mkDefault true;

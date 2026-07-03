@@ -3,10 +3,7 @@
   lib,
   config,
   ...
-}: let
-  # Import shared packages
-  #sharedPackages = import ../../../lib/shared/packages.nix {inherit pkgs;};
-in {
+}: {
   environment = {
     systemPackages = with pkgs; [
       tpm2-tss # TPM2 support for hardware security

@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
+{pkgs, ...}: let
   starshipCmd = "${pkgs.starship}/bin/starship";
   lang = icon: color: {
     symbol = icon;

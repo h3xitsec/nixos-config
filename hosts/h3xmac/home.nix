@@ -1,7 +1,5 @@
 {
   pkgs,
-  inputs,
-  config,
   username,
   ...
 }: {
@@ -16,11 +14,11 @@
       wireshark
       unrar
       protonmail-desktop
+      nil
     ];
   };
 
   programs = {
-
     # Nix index for command-not-found
     nix-index.enable = true;
     nix-index-database.comma.enable = true;

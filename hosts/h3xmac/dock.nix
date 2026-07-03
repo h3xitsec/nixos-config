@@ -1,8 +1,4 @@
-{
-  pkgs,
-  username,
-  ...
-}: {
+{username, ...}: {
   system.defaults.dock = {
     autohide = false;
     orientation = "bottom";
@@ -23,7 +19,6 @@
       "/System/Applications/Music.app"
       "/System/Applications/TV.app"
       "/Applications/Ghostty.app"
-      #"/Applications/Nix Apps/iTerm2.app"
       "/Users/${username}/Applications/Home Manager Apps/Visual Studio Code.app"
       "/Users/${username}/Applications/Home Manager Apps/Cursor.app"
       "/Users/${username}/Applications/Home Manager Apps/Headlamp.app"

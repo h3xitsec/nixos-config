@@ -5,7 +5,6 @@
 }: let
   cursorConfigDir = ".config/Cursor";
   cursorUserDir = "${cursorConfigDir}/User";
-  emptyJson = "{}";
 in {
   # Symlink the Stylix VSCode extension to Cursor's extensions directory
   # This reuses the same themed extension that Stylix generates for VSCode
