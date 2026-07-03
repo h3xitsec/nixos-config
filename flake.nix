@@ -76,12 +76,12 @@
     ...
   }: let
     username = "h3x";
-    darwinSystems = ["aarch64-darwin" "x86_64-darwin"];
     # Import our library functions
     lib = import ./lib {inherit inputs;};
   in {
     formatter = {
       x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
+      aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.alejandra;
     };
 
     # XPS15
@@ -179,6 +179,7 @@
         ./hosts/h3xmac/users.nix
         ./lib/shared/nix-settings.nix
         nix-homebrew.darwinModules.nix-homebrew
+        ({pkgs, ...}: {environment.systemPackages = [pkgs.alejandra];})
         {
           nix-homebrew = {
             # Install Homebrew under the default prefix
