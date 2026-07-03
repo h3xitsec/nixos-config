@@ -27,6 +27,7 @@
       "/Applications/1Password.app"
       "/Users/${username}/Applications/Autodesk Fusion.app"
       "/Applications/Blender.app"
+      "/Applications/Pixelmator Pro.app"
       "/System/Applications/Notes.app"
       "/Applications/Obsidian.app"
       "/Applications/GitHub Desktop.app"

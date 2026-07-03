@@ -11,6 +11,7 @@
       "1Password for Safari" = 1569813296;
       #"Pages" = 409201541;
       "Xcode" = 497799835;
+      "Pixelmator Pro" = 1289583905;
     };
     taps = [];
     brews = [
