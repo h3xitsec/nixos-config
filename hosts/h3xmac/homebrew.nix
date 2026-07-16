@@ -38,6 +38,8 @@
       "unity-hub"
       "blender"
       "lm-studio"
+      "google-chrome"
+      "qflipper"
     ];
   };
 }
