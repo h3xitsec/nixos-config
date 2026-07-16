@@ -61,7 +61,7 @@
     xkb = {
       layout = "ca";
       options = "ctrl:nocaps";
-      variant = "";
+      variant = "fr";
     };
     displayManager.startx.enable = true;
   };
