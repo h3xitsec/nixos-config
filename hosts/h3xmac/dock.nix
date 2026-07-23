@@ -12,6 +12,7 @@
       "/System/Cryptexes/App/System/Applications/Safari.app"
       "/System/Applications/Mail.app"
       "/Users/${username}/Applications/Home Manager Apps/Proton Mail.app"
+      "/Applications/ProtonVPN.app"
       "/Applications/Claude.app"
       "/System/Applications/Facetime.app"
       "/System/Applications/Messages.app"

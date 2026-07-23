@@ -40,6 +40,7 @@
       "lm-studio"
       "google-chrome"
       "qflipper"
+      "protonvpn"
     ];
   };
 }
