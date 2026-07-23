@@ -186,7 +186,7 @@
             enable = true;
 
             # Apple Silicon Only: Also install Homebrew under the default Intel prefix for Rosetta 2
-            enableRosetta = false;
+            # enableRosetta = true;
 
             # User owning the Homebrew prefix
             user = "h3x";
